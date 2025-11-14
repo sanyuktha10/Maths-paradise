@@ -1,173 +1,78 @@
-/* Maths Paradise Updated CSS Styles */
-:root{
-  --white:#ffffff;
-  --green:#0b8a4d;
-  --green-2:#1aa56a;
-  --red:#d64545;
-  --black:#0b0b0b;
-  --muted:#6b6b6b;
-  --glass: rgba(255,255,255,0.06);
-  --max-width:1200px;
-  --hero-height:480px;
-  --accent: var(--green);
-  --accent-2: var(--red);
-  --radius:14px;
-  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-}
-*{box-sizing:border-box}
-html,body{height:100%}
-body{
-  margin:0;
-  background:linear-gradient(180deg, #fbfdfb 0%, #ffffff 100%);
-  color:var(--black);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-}
-a{color:var(--accent); text-decoration:none}
-img{max-width:100%; display:block}
-.container{max-width:var(--max-width); margin:0 auto; padding:24px}
-
-/* ---------- HEADER (Spotlight for Logo/Name) ---------- */
-header{
-  position:sticky; top:0; z-index:60;
-  backdrop-filter: blur(6px);
-  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.70));
-  border-bottom:1px solid rgba(11,11,11,0.06);
-}
-.nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
-.brand{display:flex; align-items:center; gap:12px}
-
-.brand-logo{width:72px; height:72px; border-radius:12px; overflow:hidden; background:var(--green)}
-
-.brand-logo img{width:100%; height:100%; object-fit:cover}
-.brand-title{line-height:1}
-
-.brand-title h1{margin:0; font-size:26px; font-weight: 800; letter-spacing:0.4px}
-
-.brand-title p{margin:0; font-size:12px; color:var(--muted)}
-
-.highlight{
-  background: linear-gradient(90deg, var(--green-2), var(--red));
-  padding: 8px 16px;
-  border-radius:10px;
-  display:inline-block;
-  color: var(--white);
-  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-  margin: 0;
+/* Custom Font Setup (Inter is the default, but we'll ensure it) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f0f4f8; /* Light blue-gray for a premium feel */
 }
 
-nav ul{list-style:none; display:flex; gap:14px; margin:0; padding:0}
-nav li{font-weight:600; font-size:14px}
-.btn{display:inline-block; padding:10px 16px; border-radius:10px; font-weight:700}
-.btn-primary{background:var(--accent); color:var(--white)}
-.btn-outline{border:2px solid var(--accent); color:var(--accent); background:transparent}
-
-/* ---------- HERO (The Dad's Hero Section) ---------- */
-
-.hero{
-  display:grid; 
-  grid-template-columns: 1fr; 
-  gap:28px; 
-  align-items:center; 
-  padding:36px 0;
-}
-.hero-card{
-  background: linear-gradient(180deg, rgba(11,138,77,0.04), rgba(214,69,69,0.02));
-  border-radius:18px; padding:28px; box-shadow:0 10px 30px rgba(11,11,11,0.06);
-}
-.hero h2{font-size:34px; margin:0 0 8px}
-.hero .hero-sub{color:var(--muted); margin-bottom:18px}
-.hero .kpi{display:flex; gap:12px; margin-top:18px}
-.kpi .item{background:var(--white); border-radius:12px; padding:12px 14px; box-shadow:0 6px 18px rgba(11,11,11,0.04); min-width:110px}
-.kpi .num{font-weight:800; font-size:18px}
-
-.dad-card{
-  display:flex; 
-  flex-direction: column; 
-  align-items: center; 
-  gap:14px; 
-  padding: 32px; 
-  border-radius:18px; 
-  background: linear-gradient(135deg, var(--green), var(--green-2)); 
-  color: var(--white);
-  box-shadow: 0 10px 40px rgba(11,138,77,0.3); 
+/* Custom colors for Tailwind (Slightly adjusted for depth) */
+:root {
+    --color-primary-green: #059669; /* Tailwind emerald-600, deeper */
+    --color-secondary-red: #dc2626; /* Tailwind red-700, stronger */
+    --color-text-black: #111827; /* Tailwind gray-900, darker text */
+    --color-shadow-green: rgba(5, 150, 105, 0.6); /* New shadow color */
 }
 
-.dad-photo{
-  width: 200px; 
-  height: 200px; 
-  border-radius: 50%; 
-  overflow:hidden; 
-  border: 5px solid var(--white); 
-  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-}
-.dad-photo img{width:100%; height:100%; object-fit:cover}
+/* Helper classes defined using CSS variables */
+.text-green-main { color: var(--color-primary-green); }
+.bg-green-main { background-color: var(--color-primary-green); }
+.border-green-main { border-color: var(--color-primary-green); }
+.text-red-main { color: var(--color-secondary-red); }
+.bg-red-main { background-color: var(--color-secondary-red); }
 
-.dad-info{
-  text-align: center;
+/* Custom Hover Animation (Lift, stronger shadow, quicker transition) */
+.card-hover-effect {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Quicker, smoother easing */
 }
-.dad-info h3{
-  margin: 16px 0 0 0;
-  font-size: 36px; 
-  font-weight: 800;
-  color: var(--white);
+.card-hover-effect:hover {
+    transform: translateY(-8px); /* More lift */
+    box-shadow: 0 20px 40px -10px var(--color-shadow-green); /* Deeper, more distinct green shadow */
 }
 
-.dad-info h3 span{
-  display: block;
-  font-size: 18px;
-  font-weight: 400;
-  opacity: 0.9;
-  margin-top: 4px;
+/* Keyframe for subtle logo animation (more movement and glow) */
+@keyframes wave {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.04); opacity: 0.95; }
 }
 
-.dad-info p, .dad-info p.small{
-  margin: 8px 0 0 0;
-  color: rgba(255,255,255,0.9); 
-  font-size: 15px;
-  max-width: 500px;
+.logo-wave {
+    animation: wave 3.5s ease-in-out infinite;
+    text-shadow: 0 0 5px rgba(5, 150, 105, 0.2); /* Subtle glow */
 }
 
-
-/* ---------- TIMETABLE ---------- */
-.timetable{margin-top:18px; background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8)); padding:16px; border-radius:12px}
-table{width:100%; border-collapse:collapse}
-table thead th{background:var(--accent); color:var(--white); padding:10px; text-align:left; font-weight:700; border-radius:8px}
-table td{padding:10px; border-bottom:1px solid rgba(11,11,11,0.04)}
-.small{font-size:13px; color:var(--muted)}
-
-/* ---------- INFO SECTIONS ---------- */
-section{margin:48px 0}
-h3.section-title{display:flex; align-items:center; gap:12px; margin:0 0 12px}
-.card{background:var(--white); border-radius:12px; padding:18px; box-shadow:0 8px 24px rgba(11,11,11,0.04)}
-.about-grid{display:grid; grid-template-columns:1fr 340px; gap:18px; align-items:start}
-.badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--green-2); color:var(--white); font-weight:700}
-.searchbar{display:flex; gap:8px; margin-bottom:12px}
-.searchbar input{flex:1; padding:10px 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)}
-.student-list{display:grid; gap:8px}
-.student{display:flex; align-items:center; justify-content:space-between; padding:10px; border-radius:10px; background:linear-gradient(180deg, rgba(234,255,236,0.6), rgba(255,255,255,0.8));}
-.student .meta{display:flex; gap:12px; align-items:center}
-.student .meta img{width:48px; height:48px; object-fit:cover; border-radius:10px}
-.tag{padding:6px 8px; border-radius:8px; font-weight:700}
-.tag.green{background:var(--green); color:var(--white)}
-.tag.red{background:var(--red); color:var(--white)}
-.testimonials{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px}
-.cta{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px; border-radius:12px; background:linear-gradient(90deg, rgba(11,138,77,0.06), rgba(214,69,69,0.03))}
-.cta h3{margin:0}
-footer{padding:28px 0; color:var(--muted)}
-.social{display:flex; gap:8px}
-
-/* Responsive */
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr;}
-  .about-grid{grid-template-columns:1fr}
+/* Keyframe for flashing/pulsing button (New Admission) - Wider, softer pulse */
+@keyframes pulse-red {
+    0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7); }
+    50% { box-shadow: 0 0 0 15px rgba(220, 38, 38, 0); } /* Larger spread */
+    100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
 }
-@media (max-width:520px){
-  .brand-title h1{font-size:18px} 
-  .brand-logo{width:52px; height:52px}
-  .hero h2{font-size:26px}
-  /* Adjusted dad hero elements for smaller screens */
-  .dad-info h3{font-size: 28px;} 
-  .dad-photo{width: 150px; height: 150px;} 
+
+.admission-pulse {
+    animation: pulse-red 2.5s infinite; /* Slower pulse */
+}
+
+/* Modal Backdrop - Sharper blur */
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(8px);
+}
+
+/* Timetable styling improvements */
+.timetable-row:nth-child(even) {
+    background-color: rgba(5, 150, 105, 0.05); /* Very light green tint */
+}
+.timetable-header {
+    background-color: var(--color-primary-green);
+    color: white;
+    font-weight: 700;
+    border-bottom: 3px solid var(--color-secondary-red); /* Highlight border */
+}
+
+/* Ensure text elements use the new dark color variable */
+h1, h2, h3, h4, p, th, td {
+    color: var(--color-text-black);
+}
+
+.text-white {
+    color: white; /* Override for white text elements */
 }

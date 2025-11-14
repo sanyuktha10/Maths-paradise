@@ -1,693 +1,522 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maths Paradise — Admissions & Info</title>
-  <meta name="description" content="Maths Paradise tuition classes — Since 1997. Grade 6 - 11. Admissions open." />
-  <style>
-    /* ---------- BASE / RESET ---------- */
-    :root{
-      --white:#ffffff;
-      --green:#0b8a4d;
-      --green-2:#1aa56a;
-      --red:#d64545;
-      --black:#0b0b0b;
-      --muted:#6b6b6b;
-      --glass: rgba(255,255,255,0.06);
-      --max-width:1200px;
-      --hero-height:480px;
-      --accent: var(--green);
-      --accent-2: var(--red);
-      --radius:14px;
-      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      background:linear-gradient(180deg, #fbfdfb 0%, #ffffff 100%);
-      color:var(--black);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-    }
-    a{color:var(--accent); text-decoration:none}
-    img{max-width:100%; display:block}
-    .container{max-width:var(--max-width); margin:0 auto; padding:24px}
-
-    /* ---------- HEADER ---------- */
-    header{
-      position:sticky; top:0; z-index:60;
-      backdrop-filter: blur(6px);
-      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.70));
-      border-bottom:1px solid rgba(11,11,11,0.06);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
-    .brand{display:flex; align-items:center; gap:12px}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maths Paradise - Chandana Dahanayake</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     
-    /* --- MODIFIED: Bigger Logo --- */
-    .brand-logo{width:72px; height:72px; border-radius:12px; overflow:hidden; background:var(--green)}
-    
-    .brand-logo img{width:100%; height:100%; object-fit:cover}
-    .brand-title{line-height:1}
-    
-    /* --- MODIFIED: Bigger Title --- */
-    .brand-title h1{margin:0; font-size:26px; font-weight: 800; letter-spacing:0.4px}
-    
-    .brand-title p{margin:0; font-size:12px; color:var(--muted)}
-    
-    /* --- MODIFIED: Cooler Spotlight Badge --- */
-    .highlight{
-      background: linear-gradient(90deg, var(--green-2), var(--red));
-      padding: 8px 16px;
-      border-radius:10px;
-      display:inline-block;
-      color: var(--white);
-      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
-      margin: 0;
-    }
-
-    nav ul{list-style:none; display:flex; gap:14px; margin:0; padding:0}
-    nav li{font-weight:600; font-size:14px}
-    .btn{display:inline-block; padding:10px 16px; border-radius:10px; font-weight:700}
-    .btn-primary{background:var(--accent); color:var(--white)}
-    .btn-outline{border:2px solid var(--accent); color:var(--accent); background:transparent}
-
-    /* ---------- HERO ---------- */
-    
-    /* --- MODIFIED: Stacked hero --- */
-    .hero{
-      display:grid; 
-      grid-template-columns: 1fr; /* Changed to 1 column */
-      gap:28px; 
-      align-items:center; 
-      padding:36px 0;
-    }
-    .hero-card{
-      background: linear-gradient(180deg, rgba(11,138,77,0.04), rgba(214,69,69,0.02));
-      border-radius:18px; padding:28px; box-shadow:0 10px 30px rgba(11,11,11,0.06);
-    }
-    .hero h2{font-size:34px; margin:0 0 8px}
-    .hero .hero-sub{color:var(--muted); margin-bottom:18px}
-    .hero .kpi{display:flex; gap:12px; margin-top:18px}
-    .kpi .item{background:var(--white); border-radius:12px; padding:12px 14px; box-shadow:0 6px 18px rgba(11,11,11,0.04); min-width:110px}
-    .kpi .num{font-weight:800; font-size:18px}
-
-    /* --- MODIFIED: Dad Hero Card --- */
-    .dad-card{
-      display:flex; 
-      flex-direction: column; /* Stacked content */
-      align-items: center; /* Centered */
-      gap:14px; 
-      padding: 32px; /* More padding */
-      border-radius:18px; 
-      background: linear-gradient(135deg, var(--green), var(--green-2));
-      color: var(--white);
-      box-shadow: 0 10px 40px rgba(11,138,77,0.3);
-    }
-    
-    /* --- MODIFIED: Big Dad Photo --- */
-    .dad-photo{
-      width: 200px; /* BIG */
-      height: 200px; /* BIG */
-      border-radius: 50%; /* Circle */
-      overflow:hidden; 
-      border: 5px solid var(--white);
-      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
-    }
-    .dad-photo img{width:100%; height:100%; object-fit:cover}
-    
-    /* --- MODIFIED: Centered Dad Info --- */
-    .dad-info{
-      text-align: center;
-    }
-    .dad-info h3{
-      margin: 16px 0 0 0;
-      font-size: 36px; /* BIG Title */
-      font-weight: 800;
-      color: var(--white);
-    }
-    /* --- MODIFIED: Hero Subtitle Style --- */
-    .dad-info h3 span{
-      display: block;
-      font-size: 18px;
-      font-weight: 400;
-      opacity: 0.9;
-      margin-top: 4px;
-    }
-    /* --- MODIFIED: Hero Text Style --- */
-    .dad-info p, .dad-info p.small{
-      margin: 8px 0 0 0;
-      color: rgba(255,255,255,0.9);
-      font-size: 15px;
-      max-width: 500px;
-    }
-
-
-    /* ---------- TIMETABLE ---------- */
-    .timetable{margin-top:18px; background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8)); padding:16px; border-radius:12px}
-    table{width:100%; border-collapse:collapse}
-    table thead th{background:var(--accent); color:var(--white); padding:10px; text-align:left; font-weight:700; border-radius:8px}
-    table td{padding:10px; border-bottom:1px solid rgba(11,11,11,0.04)}
-    .small{font-size:13px; color:var(--muted)}
-
-    /* ---------- INFO SECTIONS (No changes below this line, kept for rest of page) ---------- */
-    section{margin:48px 0}
-    h3.section-title{display:flex; align-items:center; gap:12px; margin:0 0 12px}
-    .card{background:var(--white); border-radius:12px; padding:18px; box-shadow:0 8px 24px rgba(11,11,11,0.04)}
-    .about-grid{display:grid; grid-template-columns:1fr 340px; gap:18px; align-items:start}
-    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--green-2); color:var(--white); font-weight:700}
-    .searchbar{display:flex; gap:8px; margin-bottom:12px}
-    .searchbar input{flex:1; padding:10px 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)}
-    .student-list{display:grid; gap:8px}
-    .student{display:flex; align-items:center; justify-content:space-between; padding:10px; border-radius:10px; background:linear-gradient(180deg, rgba(234,255,236,0.6), rgba(255,255,255,0.8));}
-    .student .meta{display:flex; gap:12px; align-items:center}
-    .student .meta img{width:48px; height:48px; object-fit:cover; border-radius:10px}
-    .tag{padding:6px 8px; border-radius:8px; font-weight:700}
-    .tag.green{background:var(--green); color:var(--white)}
-    .tag.red{background:var(--red); color:var(--white)}
-    .testimonials{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px}
-    .cta{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px; border-radius:12px; background:linear-gradient(90deg, rgba(11,138,77,0.06), rgba(214,69,69,0.03))}
-    .cta h3{margin:0}
-    footer{padding:28px 0; color:var(--muted)}
-    .social{display:flex; gap:8px}
-
-    /* Responsive */
-    @media (max-width:980px){
-      .hero{grid-template-columns:1fr;}
-      .about-grid{grid-template-columns:1fr}
-    }
-    @media (max-width:520px){
-      .brand-title h1{font-size:18px} /* Adjusted mobile title */
-      .brand-logo{width:52px; height:52px}
-      .hero h2{font-size:26px}
-      .dad-info h3{font-size: 28px;} /* Adjusted dad hero title for mobile */
-      .dad-photo{width: 150px; height: 150px;} /* Adjusted dad photo for mobile */
-    }
-  </style>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <header>
-    <div class="container">
-      <div class="nav">
-        <div class="brand">
-          <div class="brand-logo" aria-hidden>
-            <img src="logo.png" alt="Maths Paradise Logo" />
-          </div>
-          <div class="brand-title">
-            <h1 class="highlight">Maths Paradise</h1>
-            <p>Since 1997 — Grade 6 • 7 • 8 • 9 • 10 • 11</p>
-          </div>
-        </div>
+<body class="text-gray-900">
 
-        <nav>
-          <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#timetable">Timetable</a></li>
-            <li><a href="#students">Students</a></li>
-            <li><a href="#admissions" class="btn btn-outline">Admissions</a></li>
-          </ul>
+    <!-- Navbar (Fixed and Styled) -->
+    <header class="sticky top-0 z-50 shadow-xl bg-white/95 backdrop-blur-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-extrabold flex items-center logo-wave">
+                <span class="text-green-main">Maths</span>
+                <span class="text-red-main ml-1">Paradise</span>
+                <i data-lucide="calculator" class="ml-2 text-green-main w-6 h-6"></i>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#about" class="hover:text-green-main transition duration-300">About</a>
+                <a href="#timetable" class="hover:text-green-main transition duration-300">Timetable</a>
+                <a href="#directories" class="hover:text-green-main transition duration-300">Directories</a>
+                <a href="#admission" class="bg-red-main text-white px-4 py-2 rounded-full hover:bg-red-700 transition duration-300 admission-pulse">New Admission</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition">
+                <i data-lucide="menu" class="w-6 h-6 text-gray-900"></i>
+            </button>
         </nav>
-      </div>
+        
+        <!-- Mobile Menu Drawer (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 transition-all duration-300">
+            <div class="flex flex-col p-4 space-y-2">
+                <a href="#about" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition" onclick="toggleMobileMenu()">About</a>
+                <a href="#timetable" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition" onclick="toggleMobileMenu()">Timetable</a>
+                <a href="#directories" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition" onclick="toggleMobileMenu()">Directories</a>
+                <a href="#admission" class="bg-red-main text-white py-2 px-3 rounded-lg text-center hover:bg-red-700 transition" onclick="toggleAdmissionModal(); toggleMobileMenu()">New Admission</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto">
+        
+        <!-- Hero Section -->
+        <section id="hero" class="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 bg-green-main/10 rounded-b-3xl shadow-inner">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900">
+                    Master <span class="text-green-main">Mathematics</span>
+                </h1>
+                <p class="mt-4 text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
+                    A legacy of excellence under the guidance of 
+                    <span class="font-semibold text-green-main">Chandana Dahanayake</span>.
+                </p>
+
+                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                    <button onclick="toggleAdmissionModal()" class="w-full sm:w-auto bg-red-main text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-red-700 transition duration-300 admission-pulse">
+                        Enroll Grade 6 Now
+                    </button>
+                    <a href="#about" class="w-full sm:w-auto bg-gray-900 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-green-main transition duration-300">
+                        Explore Our Legacy
+                    </a>
+                </div>
+                
+                <!-- Animated "Since 1997" Counter -->
+                <div class="mt-16 bg-gray-900 text-white p-6 rounded-xl inline-block shadow-2xl">
+                    <p class="text-2xl font-light">Serving Students Since</p>
+                    <div class="text-6xl font-black text-green-main mt-1">
+                        <span id="year-counter" data-target="1997">0</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-20 px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 border-b-4 border-green-main/50 pb-2 inline-block mx-auto text-gray-900">
+                About Maths Paradise & Mr. Dahanayake
+            </h2>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                <!-- Mr. Dahanayake Details Card -->
+                <div class="lg:col-span-1 bg-white p-8 rounded-xl shadow-2xl border-t-4 border-green-main card-hover-effect">
+                    <div class="text-center">
+                        <!-- Placeholder for Dad's image -->
+                        <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full flex items-center justify-center text-4xl text-green-main font-bold border-4 border-green-main/50">
+                            C.D
+                        </div>
+                        <h3 class="text-3xl font-bold mt-4 text-gray-900">Chandana Dahanayake</h3>
+                        <p class="text-red-main font-semibold text-xl">The Only Instructor</p>
+                        <p class="mt-3 text-gray-700 leading-relaxed">
+                            Mr. Chandana Dahanayake has been the heart and soul of Maths Paradise since its inception in 1997. His unique teaching methodology, focused on clear concepts and rigorous practice, has successfully guided thousands of students to achieve exceptional results in their O/L and A/L examinations.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Legacy & Mission Card -->
+                <div class="lg:col-span-2 bg-white p-8 rounded-xl shadow-2xl border-t-4 border-red-main card-hover-effect flex flex-col justify-between">
+                    <h3 class="text-3xl font-bold text-gray-900 mb-4">Our Legacy: Since 1997</h3>
+                    <p class="text-gray-700 leading-relaxed text-lg">
+                        For over **25 years**, Maths Paradise has been synonymous with high-quality Mathematics education. Our mission is to transform math fear into math fluency, ensuring every student, regardless of their current level, can master complex concepts. We offer classes in both Sinhala and English mediums for Grade 6 to Grade 11.
+                    </p>
+                    <div class="mt-6">
+                        <h4 class="text-xl font-bold text-green-main">Key Focus Areas:</h4>
+                        <ul class="list-none space-y-2 mt-2 text-gray-700">
+                            <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-green-main mr-2"></i> Grade 6 to 11 Curriculum Mastery</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-green-main mr-2"></i> Dedicated Sinhala Medium Classes</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-green-main mr-2"></i> Dedicated English Medium Classes</li>
+                            <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-green-main mr-2"></i> Exam-Oriented Paper Classes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Timetable Section -->
+        <section id="timetable" class="py-20 px-6 bg-gray-900 rounded-xl my-10 shadow-3xl">
+            <h2 class="text-4xl font-bold text-center mb-12 text-white border-b-4 border-red-main/50 pb-2 inline-block mx-auto">
+                Class Timetable (Grade 6 - 11)
+            </h2>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white rounded-lg shadow-xl text-gray-900">
+                    <thead>
+                        <tr class="bg-green-main text-white text-left text-sm uppercase tracking-wider">
+                            <th class="p-3 rounded-tl-lg">Grade</th>
+                            <th class="p-3">Medium</th>
+                            <th class="p-3">Day</th>
+                            <th class="p-3">Time</th>
+                            <th class="p-3 rounded-tr-lg">Focus</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        <!-- Grade 6 -->
+                        <tr class="timetable-row">
+                            <td class="p-3 font-semibold">6</td>
+                            <td class="p-3">Sinhala / English</td>
+                            <td class="p-3 text-red-main">Saturday</td>
+                            <td class="p-3">8:00 AM - 10:00 AM</td>
+                            <td class="p-3">Foundational Concepts</td>
+                        </tr>
+                        <!-- Grade 8 -->
+                        <tr class="timetable-row">
+                            <td class="p-3 font-semibold">8</td>
+                            <td class="p-3">Sinhala</td>
+                            <td class="p-3">Saturday</td>
+                            <td class="p-3">10:30 AM - 12:30 PM</td>
+                            <td class="p-3">Intermediate Geometry & Algebra</td>
+                        </tr>
+                        <tr class="timetable-row">
+                            <td class="p-3 font-semibold">8</td>
+                            <td class="p-3">English</td>
+                            <td class="p-3">Sunday</td>
+                            <td class="p-3">1:00 PM - 3:00 PM</td>
+                            <td class="p-3">Intermediate Geometry & Algebra</td>
+                        </tr>
+                        <!-- Grade 10 -->
+                        <tr class="timetable-row">
+                            <td class="p-3 font-semibold">10</td>
+                            <td class="p-3">Sinhala</td>
+                            <td class="p-3 text-red-main">Sunday</td>
+                            <td class="p-3">3:30 PM - 5:30 PM</td>
+                            <td class="p-3">O/L Theory & Past Papers</td>
+                        </tr>
+                        <!-- Grade 11 -->
+                        <tr class="timetable-row">
+                            <td class="p-3 font-semibold">11</td>
+                            <td class="p-3">English</td>
+                            <td class="p-3">Friday</td>
+                            <td class="p-3">4:00 PM - 6:00 PM</td>
+                            <td class="p-3">Final Exam Revision & Practice</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <p class="text-center text-gray-400 mt-6 text-sm">
+                *All classes are conducted exclusively by Chandana Dahanayake. Please contact for specific paper class schedules.
+            </p>
+        </section>
+
+        <!-- Directories Section -->
+        <section id="directories" class="py-20 px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 border-b-4 border-green-main/50 pb-2 inline-block mx-auto text-gray-900">
+                Student Community
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Past Student Directory/Gallery -->
+                <div class="bg-white p-6 rounded-xl shadow-2xl border-l-8 border-green-main card-hover-effect">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-2xl font-bold text-green-main">Past Student Triumphs</h3>
+                        <i data-lucide="graduation-cap" class="w-8 h-8 text-green-main"></i>
+                    </div>
+                    <p class="text-gray-700">
+                        View our gallery of past students, their achievements, and testimonials. A testament to 25+ years of success.
+                    </p>
+                    <button onclick="openModal('pastStudentModal')" class="mt-4 bg-gray-900 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-main transition duration-300">
+                        View Gallery
+                    </button>
+                </div>
+
+                <!-- Current Student Directory -->
+                <div class="bg-white p-6 rounded-xl shadow-2xl border-l-8 border-red-main card-hover-effect">
+                    <div class="flex justify-between items-center mb-4">
+                        <h3 class="text-2xl font-bold text-red-main">Current Student Directory</h3>
+                        <i data-lucide="users" class="w-8 h-8 text-red-main"></i>
+                    </div>
+                    <p class="text-gray-700">
+                        Access the directory for peer-to-peer networking and collaboration resources (Grade 6 - 11, both mediums).
+                    </p>
+                    <button onclick="openModal('currentStudentModal')" class="mt-4 bg-gray-900 text-white font-semibold py-2 px-6 rounded-full hover:bg-red-main transition duration-300">
+                        Access Directory
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- New Admission Section -->
+        <section id="admission" class="py-20 px-6">
+            <div class="bg-red-main/10 p-10 rounded-3xl shadow-2xl text-center border-4 border-dashed border-red-main">
+                <h2 class="text-4xl font-extrabold text-red-main mb-4">
+                    New Intake for Grade 6 is OPEN!
+                </h2>
+                <p class="text-xl text-gray-800 max-w-2xl mx-auto mb-8">
+                    Start your journey to mathematical mastery with the foundation you deserve. Limited slots available for the Grade 6 
+                    <span class="font-bold">Sinhala & English Medium</span> classes.
+                </p>
+                <button onclick="toggleAdmissionModal()" class="bg-red-main text-white font-black text-2xl py-4 px-10 rounded-full shadow-xl hover:bg-red-700 transition duration-300 admission-pulse">
+                    <i data-lucide="arrow-right-circle" class="w-6 h-6 inline-block mr-2"></i> Apply Now
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white text-center">
+            <p class="text-xl font-bold mb-2">Maths Paradise</p>
+            <p class="text-green-main text-sm">A Legacy of Quality Education since <span class="font-bold" id="footer-year">1997</span>.</p>
+            <div class="mt-4 text-gray-400 text-sm">
+                <p>Instructor: Chandana Dahanayake | All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL - New Admission Form (Hidden by default) -->
+    <div id="admissionModal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-backdrop p-4" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="bg-white rounded-xl shadow-3xl max-w-lg w-full transform transition-all overflow-hidden border-t-8 border-green-main">
+            <div class="p-6">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-2xl font-bold text-gray-900" id="modal-title">Grade 6 New Admission</h3>
+                    <button onclick="toggleAdmissionModal()" class="text-gray-400 hover:text-red-main transition">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <p class="mt-2 text-sm text-gray-600">Please fill out the form to secure your child's place in the upcoming intake.</p>
+                
+                <form class="mt-6 space-y-4">
+                    <div>
+                        <label for="student-name" class="block text-sm font-medium text-gray-700">Student Name</label>
+                        <input type="text" id="student-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border" placeholder="Full Name" required>
+                    </div>
+                    <div>
+                        <label for="parent-contact" class="block text-sm font-medium text-gray-700">Parent Contact Number</label>
+                        <input type="tel" id="parent-contact" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border" placeholder="07XXXXXXXX" required>
+                    </div>
+                    <div>
+                        <label for="medium" class="block text-sm font-medium text-gray-700">Required Medium</label>
+                        <select id="medium" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border">
+                            <option>Sinhala Medium</option>
+                            <option>English Medium</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full bg-green-main text-white font-bold py-2 px-4 rounded-full hover:bg-green-600 transition duration-300 shadow-md">
+                        Submit Application
+                    </button>
+                    <p class="text-xs text-center text-red-main pt-2">
+                        *This is a mock application. No data will be submitted.
+                    </p>
+                </form>
+            </div>
+        </div>
     </div>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-    
-      <aside>
-        <div class="dad-card card" aria-labelledby="dad-heading">
-          <div class="dad-photo">
-            <img src="dad.jpg" alt="Head tutor (Dad)" />
-          </div>
-          <div class="dad-info">
-            <h3 id="dad-heading">Mr. D. L. S. A. — <span>Founder & Head Tutor</span></h3>
-            <p>With over two decades of experience, our head tutor (your dad) leads the teaching with compassion, clarity, and results-driven methods. Maths Paradise is his proud work since 1997.</p>
-            <p class="small">Subjects: Arithmetic, Algebra, Geometry, Exam Techniques</p>
-          </div>
-        </div>
-
-        <div style="margin-top:12px" class="card">
-          <h4 style="margin:0">Why choose Maths Paradise?</h4>
-          <ul style="margin:12px 0 0 18px">
-            <li>Personal attention with small batches</li>
-            <li>Focused exam preparation (scholarship & term tests)</li>
-            <li>Proven track record since 1997</li>
-            <li>Friendly atmosphere — we treat students like family</li>
-          </ul>
-        </div>
-      </aside>
-
-      <div class="hero-card">
-        <h2><span style="color:var(--green)">Maths Paradise</span> — Where Numbers Make Sense</h2>
-        <p class="hero-sub">Expert tuition for Grades 6–11. Personalised attention, proven results, and a warm friendly environment.</p>
-
-        <div class="kpi">
-          <div class="item">
-            <div class="num">25+ Years</div>
-            <div class="small">Teaching Excellence</div>
-          </div>
-          <div class="item">
-            <div class="num">500+</div>
-            <div class="small">Happy Students</div>
-          </div>
-          <div class="item">
-            <div class="num">Top 10%</div>
-            <div class="small">Average Score Improvement</div>
-          </div>
-        </div>
-
-        <div class="timetable" id="timetable">
-          <h4 style="margin:0 0 12px">Class Timetable (Sample) — Updated Weekly</h4>
-          <table>
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>Time</th>
-                <th>Grade(s)</th>
-                <th>Teacher</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Monday</td>
-                <td>4:00 PM - 6:00 PM</td>
-                <td>Grade 6 • Grade 7</td>
-                <td>Mr. D. L. S. A. (Head Tutor)</td>
-              </tr>
-              <tr>
-                <td>Tuesday</td>
-                <td>5:00 PM - 7:00 PM</td>
-                <td>Grade 8 • Grade 9</td>
-                <td>Mrs. Indira</td>
-              </tr>
-              <tr>
-                <td>Wednesday</td>
-                <td>4:00 PM - 6:00 PM</td>
-                <td>Grade 6 • Grade 7</td>
-                <td>Mr. D. L. S. A.</td>
-              </tr>
-              <tr>
-                <td>Saturday</td>
-                <td>9:00 AM - 12:00 PM</td>
-                <td>Intensive Revision — All Grades</td>
-                <td>Senior Team</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <div style="margin-top:16px; display:flex; gap:12px; align-items:center">
-          <a class="btn btn-primary" href="#admissions" onclick="openAdmissionForm()">Apply for Grade 6</a>
-          <a class="btn btn-outline" href="#students">See Past & Current Students</a>
-        </div>
-
-      </div>
-
-    </section>
-
-    <section id="about">
-      <h3 class="section-title"><span class="badge">About</span> <span style="font-weight:800">Maths Paradise</span></h3>
-      <div class="about-grid">
-        <div>
-          <div class="card">
-            <h4>Our Story</h4>
-            <p>Maths Paradise began in 1997 as a small neighbourhood tuition class. Over the years, we've expanded our reach and developed a structured approach that helps students understand mathematics conceptually — not just memorize steps. Our founder (your dad) brings patience and an ability to break tough topics into simple, memorable tricks.</p>
-
-            <h4 style="margin-top:12px">What we teach</h4>
-            <p>From basics to exam-level problem solving:</p>
-            <ul>
-              <li>Number sense & mental math</li>
-              <li>Ratio, Proportion and Percentages</li>
-              <li>Algebra: expressions, equations and inequalities</li>
-              <li>Geometry: shapes, areas and volumes</li>
-              <li>Trigonometry basics for upper grades</li>
-            </ul>
-          </div>
-
-          <div style="margin-top:12px" class="card">
-            <h4>Success Stories</h4>
-            <p>Our students consistently improve their school test scores and many place highly in scholarship exams. We focus on building confidence as much as technique.</p>
-            <div class="testimonials">
-              <div class="card">
-                <strong>Priya S.</strong>
-                <p class="small">"Scored 89% in Maths after 6 months at Maths Paradise!"</p>
-              </div>
-              <div class="card">
-                <strong>Ruwan K.</strong>
-                <p class="small">"The tricks for quick arithmetic saved me in the scholarship exam."</p>
-              </div>
-              <div class="card">
-                <strong>Naduni M.</strong>
-                <p class="small">"Teachers are patient and explain clearly."</p>
-              </div>
+    <!-- MODAL - Student Directories (Reused for Past/Current) -->
+    <div id="directoryModal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-backdrop p-4" aria-labelledby="dir-modal-title" role="dialog" aria-modal="true">
+        <div class="bg-white rounded-xl shadow-3xl max-w-xl w-full transform transition-all overflow-hidden border-t-8 border-red-main max-h-[90vh] flex flex-col">
+            <div class="p-6 flex-shrink-0">
+                <div class="flex justify-between items-start">
+                    <h3 class="text-2xl font-bold text-gray-900" id="dir-modal-title">Student Directory Access</h3>
+                    <button onclick="closeModal('directoryModal')" class="text-gray-400 hover:text-red-main transition">
+                        <i data-lucide="x" class="w-6 h-6"></i>
+                    </button>
+                </div>
+                <p id="dir-modal-subtitle" class="mt-2 text-sm text-gray-600">Loading student list...</p>
             </div>
-          </div>
-        </div>
 
-        <aside>
-          <div class="card">
-            <h4>Quick Facts</h4>
-            <ul>
-              <li><strong>Established:</strong> 1997</li>
-              <li><strong>Location:</strong> Dalugama (Prime Villas area) — contact for exact address</li>
-              <li><strong>Focus:</strong> Grades 6 to 11</li>
-              <li><strong>Class size:</strong> Max 12 students per batch</li>
-            </ul>
-            <div style="margin-top:12px">
-              <strong>Contact</strong>
-              <p class="small">Phone: <a href="tel:+9477XXXXXXX">+94 77 XXXXXXX</a></p>
-              <p class="small">Email: <a href="mailto:mathsparadise@example.com">mathsparadise@example.com</a></p>
-            </div>
-          </div>
+            <div class="p-6 pt-0 overflow-y-auto flex-grow">
+                <!-- Mock Directory Content -->
+                <div id="directory-content" class="space-y-4">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
 
-          <div style="margin-top:12px" class="card">
-            <h4>Openings</h4>
-            <p class="small">We are accepting a small number of new Grade 6 students for the next academic year. Click below to apply or enquire.</p>
-            <div style="display:flex; gap:8px; margin-top:8px">
-              <a class="btn btn-primary" href="#admissions" onclick="openAdmissionForm()">Apply Now</a>
-              <a class="btn btn-outline" href="#contact">Enquire</a>
+                <!-- API Call Skeleton for Advanced Functionality -->
+                <div class="mt-6 p-4 border border-gray-200 rounded-lg bg-gray-50">
+                    <h4 class="text-lg font-semibold text-green-main">Need to find someone specific?</h4>
+                    <p class="text-sm text-gray-600 mb-2">
+                        Use the mock "AI Lookup" functionality (simulated API call).
+                    </p>
+                    <div class="flex space-x-2">
+                        <input type="text" id="ai-query" class="flex-grow rounded-md border-gray-300 p-2 text-sm border" placeholder="Search by name or grade (e.g., 'A/L achievers')" onkeypress="if(event.key==='Enter') mockApiCall()">
+                        <button onclick="mockApiCall()" class="bg-red-main text-white text-sm py-2 px-4 rounded-md hover:bg-red-700 transition">
+                            <i data-lucide="search" class="w-4 h-4 inline-block"></i>
+                        </button>
+                    </div>
+                    <div id="ai-response" class="mt-3 text-sm italic text-gray-800 hidden p-2 border-l-4 border-red-main bg-red-main/10"></div>
+                </div>
             </div>
-          </div>
-
-        </aside>
-      </div>
-    </section>
-
-    <section id="students">
-      <h3 class="section-title"><span class="badge">Students</span> Current & Past Students</h3>
-      <div class="card">
-        <div class="searchbar">
-          <input id="searchInput" placeholder="Search student name or year..." aria-label="Search students" />
-          <select id="gradeFilter">
-            <option value="all">All Grades</option>
-            <option value="6">Grade 6</option>
-            <option value="7">Grade 7</option>
-            <option value="8">Grade 8</option>
-            <option value="9">Grade 9</option>
-            <option value="10">Grade 10</option>
-            <option value="11">Grade 11</option>
-          </select>
-          <button class="btn btn-primary" onclick="applyFilter()">Filter</button>
-        </div>
-
-        <div class="student-list" id="studentList">
-          <div class="student" data-grade="6">
-            <div class="meta">
-              <img src="student1.jpg" alt="Priya S." />
-              <div>
-                <strong>Priya S.</strong>
-                <div class="small">Graduated: 2024 — Scholarship: 89%</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag green">Top Scorer</span>
-            </div>
-          </div>
-
-          <div class="student" data-grade="6">
-            <div class="meta">
-              <img src="student2.jpg" alt="Ruwan K." />
-              <div>
-                <strong>Ruwan K.</strong>
-                <div class="small">Graduated: 2023 — Maths Marks: 82</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag red">Improved +20%</span>
-            </div>
-          </div>
-
-          <div class="student" data-grade="7">
-            <div class="meta">
-              <img src="student3.jpg" alt="Naduni M." />
-              <div>
-                <strong>Naduni M.</strong>
-                <div class="small">Current: Grade 7 — Last Test: 78</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag green">Consistent</span>
-            </div>
-          </div>
-
-          <div class="student" data-grade="8">
-            <div class="meta">
-              <img src="student4.jpg" alt="Saman P." />
-              <div>
-                <strong>Saman P.</strong>
-                <div class="small">Graduated: 2022 — Now A-levels</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag green">Alumni</span>
-            </div>
-          </div>
-
-          <div class="student" data-grade="9">
-            <div class="meta">
-              <img src="student5.jpg" alt="Kasun T." />
-              <div>
-                <strong>Kasun T.</strong>
-                <div class="small">Current: Grade 9 — Last Test: 84</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag red">Rapid Growth</span>
-            </div>
-          </div>
-
-          <div class="student" data-grade="10">
-            <div class="meta">
-              <img src="student6.jpg" alt="Dilani R." />
-              <div>
-                <strong>Dilani R.</strong>
-                <div class="small">Graduated: 2021 — Scholarship: 92</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag green">Scholarship</span>
-            </div>
-          </div>
-
-          <div class="student" data-grade="6">
-            <div class="meta">
-              <img src="student7.jpg" alt="Anushka J." />
-              <div>
-                <strong>Anushka J.</strong>
-                <div class="small">Current: Grade 6 — Last Test: 75</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag green">Active</span>
-            </div>
-          </div>
-
-          <div class="student" data-grade="11">
-            <div class="meta">
-              <img src="student8.jpg" alt="Mihiran S." />
-              <div>
-                <strong>Mihiran S.</strong>
-                <div class="small">Graduated: 2020 — Now at University</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag green">Alumni</span>
-            </div>
-          </div>
-
-          <div class="student" data-grade="7">
-            <div class="meta">
-              <img src="student9.jpg" alt="Yasara P." />
-              <div>
-                <strong>Yasara P.</strong>
-                <div class="small">Current: Grade 7 — Last Test: 80</div>
-              </div>
-            </div>
-            <div>
-              <span class="tag green">Consistent</span>
-            </div>
-          </div>
 
         </div>
-
-      </div>
-    </section>
-
-    <section id="admissions">
-      <h3 class="section-title"><span class="badge">Admissions</span> Apply for Grade 6 — Next Intake</h3>
-      <div class="card">
-        <p>To apply for Grade 6, please fill the short application form. We will review and contact you within 3 working days.</p>
-
-        <h4>Admission Requirements</h4>
-        <ul>
-          <li>Currently in Grade 5 (2025)</li>
-          <li>Provide last term Mathematics marks</li>
-          <li>Parent/guardian contact number</li>
-        </ul>
-
-        <h4 style="margin-top:12px">Quick Apply</h4>
-        <p class="small">Click the button below to open our Google Form in a new tab. (Replace the URL in JS with your actual Google Form link.)</p>
-        <div style="display:flex; gap:8px; align-items:center; margin-top:8px">
-          <a class="btn btn-primary" onclick="openAdmissionForm()" style="cursor:pointer">Open Admission Form</a>
-          <a class="btn btn-outline" href="#contact">Need help? Contact us</a>
-        </div>
-
-      </div>
-    </section>
-
-    <section id="contact">
-      <h3 class="section-title"><span class="badge">Contact</span> Get in touch</h3>
-      <div class="card" style="display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start">
-        <div>
-          <form id="contactForm" onsubmit="handleContact(event)">
-            <label>Parent / Guardian Name</label>
-            <input name="parentName" required style="width:100%; padding:10px; margin:6px 0 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)" />
-
-            <label>Phone Number</label>
-            <input name="phone" required style="width:100%; padding:10px; margin:6px 0 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)" />
-
-            <label>Message</label>
-            <textarea name="message" rows="4" style="width:100%; padding:10px; margin:6px 0 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)"></textarea>
-
-            <div style="display:flex; gap:8px">
-              <button class="btn btn-primary" type="submit">Send Message</button>
-              <button class="btn btn-outline" type="button" onclick="fillSample()">Fill Sample</button>
-            </div>
-          </form>
-        </div>
-
-        <aside class="card">
-          <h4>Visit Us</h4>
-          <p class="small">Prime Villas, Dalugama — exact address shared after enquiry.</p>
-          <div style="margin-top:8px">
-            <strong>Hours</strong>
-            <p class="small">Mon–Fri: 4pm–8pm • Sat: 9am–12pm • Sun: Closed</p>
-          </div>
-
-          <div style="margin-top:8px">
-            <strong>Follow</strong>
-            <div class="social" style="margin-top:6px">
-              <a href="#">Facebook</a>
-              <a href="#">Instagram</a>
-              <a href="#">WhatsApp</a>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section>
-      <div class="cta">
-        <div>
-          <h3 style="margin:0"><span style="color:var(--green)">Maths Paradise</span> — Ready to Grow?</h3>
-          <p class="small">Secure a seat for your child — enrolments are limited to keep classes personal.</p>
-        </div>
-        <div style="display:flex; gap:8px">
-          <a class="btn btn-primary" onclick="openAdmissionForm()">Apply for Grade 6</a>
-          <a class="btn btn-outline" href="#contact">Contact Us</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    <div class="container">
-      <div style="display:flex; align-items:center; justify-content:space-between">
-        <div>
-          <strong style="font-size:18px">Maths Paradise</strong>
-          <p class="small" style="margin:6px 0">Since 1997 • Founded & run by Mr. D. L. S. A.</p>
-        </div>
-        <div>
-          <p class="small">© Maths Paradise — All rights reserved</p>
-        </div>
-      </div>
     </div>
-  </footer>
 
-  <script>
-    // ------------------ CONFIG ------------------
-    // Replace this URL with your actual Google Form link for admissions
-    const ADMISSION_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform';
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
 
-    // ------------------ ADMISSION ------------------
-    function openAdmissionForm(){
-      // Open in new tab
-      window.open(ADMISSION_FORM_URL, '_blank');
-    }
-
-    // ------------------ CONTACT FORM (local demo) ------------------
-    function handleContact(e){
-      e.preventDefault();
-      const f = e.target;
-      const data = {
-        parentName: f.parentName.value,
-        phone: f.phone.value,
-        message: f.message.value
-      };
-      // For demo, show a friendly message. Replace with actual server endpoint if needed.
-      alert('Thanks ' + data.parentName + '! We received your message and will contact you soon.');
-      f.reset();
-    }
-
-    function fillSample(){
-      const f = document.getElementById('contactForm');
-      f.parentName.value = 'Mrs. Silva';
-      f.phone.value = '+94 77 1234567';
-      f.message.value = 'I would like to enrol my child for Grade 6. Please advise next steps.';
-    }
-
-    // ------------------ STUDENT DIRECTORY FILTER ------------------
-    function applyFilter(){
-      const q = document.getElementById('searchInput').value.toLowerCase().trim();
-      const grade = document.getElementById('gradeFilter').value;
-      const items = document.querySelectorAll('#studentList .student');
-      items.forEach(it => {
-        const name = it.querySelector('strong').textContent.toLowerCase();
-        const meta = it.querySelector('.small') ? it.querySelector('.small').textContent.toLowerCase() : '';
-        const g = it.getAttribute('data-grade');
-        let match = true;
-        if(q){ match = name.includes(q) || meta.includes(q); }
-        if(grade !== 'all' && g !== grade) match = false;
-        it.style.display = match ? 'flex' : 'none';
-      });
-    }
-
-    // Allow search on Enter
-    document.getElementById('searchInput').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ applyFilter(); e.preventDefault(); } });
-
-    // ------------------ SMALL UX: scroll to sections on anchor click ------------------
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', function(e){
-        const target = this.getAttribute('href');
-        if(target && target.startsWith('#')){
-          e.preventDefault();
-          const el = document.querySelector(target);
-          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        // Global State for Modals
+        const admissionModal = document.getElementById('admissionModal');
+        const directoryModal = document.getElementById('directoryModal');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        
+        /**
+         * Toggles the mobile menu visibility.
+         */
+        function toggleMobileMenu() {
+            mobileMenu.classList.toggle('hidden');
         }
-      });
-    });
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
-    // ------------------ Accessibility tweaks ------------------
-    // Set focus outline for keyboard users
-    document.addEventListener('keydown', function(e){ if(e.key === 'Tab'){ document.body.classList.add('user-is-tabbing'); } });
 
-    // ------------------ Placeholder: Load sample images gracefully ------------------
-    // If any image is missing, replace with a colored placeholder
-    document.querySelectorAll('img').forEach(img =>{
-      img.addEventListener('error', () => {
-        // make a simple placeholder
-        img.src = 'data:image/svg+xml;utf8,\
-          <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300">\
-            <rect width="100%" height="100%" fill="%230b8a4d"/>\
-            <text x="50%" y="50%" font-size="18" fill="white" dominant-baseline="middle" text-anchor="middle">Image not available</text>\
-          </svg>';
-      });
-    });
+        /**
+         * Toggles the New Admission Modal visibility.
+         */
+        function toggleAdmissionModal() {
+            if (admissionModal.classList.contains('hidden')) {
+                admissionModal.classList.remove('hidden');
+                admissionModal.classList.add('flex');
+            } else {
+                admissionModal.classList.add('hidden');
+                admissionModal.classList.remove('flex');
+            }
+        }
 
-    // ------------------ END ------------------
-  </script>
+        /**
+         * Opens the Directory Modal and populates content based on type.
+         * @param {string} modalType 'pastStudentModal' or 'currentStudentModal'
+         */
+        function openModal(modalType) {
+            const titleEl = document.getElementById('dir-modal-title');
+            const subtitleEl = document.getElementById('dir-modal-subtitle');
+            const contentEl = document.getElementById('directory-content');
+            
+            contentEl.innerHTML = '';
+            
+            if (modalType === 'pastStudentModal') {
+                titleEl.textContent = 'Past Student Triumphs & Testimonials';
+                subtitleEl.textContent = 'A look at the successful journey of our alumni since 1997.';
+                
+                // Mock Testimonial Data (using black/white/green/red)
+                const mockPastStudents = [
+                    { name: "Anjali Perera", year: 2018, achievement: "A/L (Science) - Island Rank 12", quote: "Mr. Dahanayake made calculus simple and accessible." },
+                    { name: "Nimal Fernando", year: 2020, achievement: "O/L (Maths) - A Grade", quote: "The best math tutor in the city! Concept clarity is unmatched.", color: "red-main" },
+                    { name: "Chamath Wijeratne", year: 2022, achievement: "University Entry - Engineering Faculty", quote: "The paper class saved my final exam preparation.", color: "green-main" },
+                ];
+
+                contentEl.innerHTML = mockPastStudents.map(student => `
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-md border-l-4 border-${student.color || 'green-main'}">
+                        <p class="text-xl font-bold text-gray-900">${student.name} (${student.year})</p>
+                        <p class="text-sm font-semibold text-red-main">${student.achievement}</p>
+                        <p class="mt-2 italic text-gray-700">"${student.quote}"</p>
+                    </div>
+                `).join('');
+
+            } else if (modalType === 'currentStudentModal') {
+                titleEl.textContent = 'Current Student Directory (G6 - G11)';
+                subtitleEl.textContent = 'Access resources and peer contacts across all classes and mediums.';
+
+                // Mock Current Student Data
+                const mockCurrentStudents = [
+                    { grade: 6, medium: "Sinhala", count: 45, color: "green-main" },
+                    { grade: 8, medium: "English", count: 32, color: "red-main" },
+                    { grade: 10, medium: "Sinhala", count: 68, color: "green-main" },
+                    { grade: 11, medium: "English", count: 55, color: "red-main" },
+                ];
+
+                contentEl.innerHTML = mockCurrentStudents.map(group => `
+                    <div class="bg-gray-50 p-4 rounded-lg shadow-md border-l-4 border-${group.color}">
+                        <p class="text-lg font-bold text-gray-900">Grade ${group.grade} (${group.medium})</p>
+                        <p class="text-sm text-gray-700">Total Students: <span class="font-bold text-${group.color}">${group.count}</span></p>
+                        <p class="text-xs italic text-gray-500 mt-1">Mock contact access: Click 'Search' to simulate lookup.</p>
+                    </div>
+                `).join('');
+            }
+
+            directoryModal.classList.remove('hidden');
+            directoryModal.classList.add('flex');
+        }
+
+        /**
+         * Closes any given modal.
+         * @param {string} modalId 
+         */
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        /**
+         * Mock function simulating an API call to Gemini for smart lookup.
+         */
+        async function mockApiCall() {
+            const query = document.getElementById('ai-query').value.trim();
+            const responseEl = document.getElementById('ai-response');
+            
+            if (query === '') {
+                responseEl.textContent = 'Please enter a query to search the mock database.';
+                responseEl.classList.remove('hidden');
+                return;
+            }
+
+            const loadingMessage = "Searching the archives... Simulating LLM grounded search on past achievements. This may take a moment...";
+            const mockResponses = {
+                "a/l achievers": "Found 15 recent A/L students who achieved A passes. Their key strategy was consistent practice and attending the Sunday paper class.",
+                "grade 6": "There are 45 Sinhala medium and 28 English medium students in Grade 6. Their primary resource is the 'Foundational Maths Workbook 2025'.",
+                "anjana": "Anjana has two entries: A Past Student (O/L 2017, now a Dentist) and a Current G11 Student (English Medium).",
+                "trigonometry help": "The best resource is Mr. Dahanayake's Trigonometry Revision Notes (Page 45 of the G10 book).",
+            };
+            
+            responseEl.classList.remove('hidden', 'border-red-main', 'bg-red-main/10');
+            responseEl.classList.add('border-green-main', 'bg-green-main/10');
+            responseEl.innerHTML = `<i data-lucide="loader" class="w-4 h-4 inline-block animate-spin mr-2"></i> ${loadingMessage}`;
+            lucide.createIcons();
+
+            // Simulate Network Delay
+            await new Promise(resolve => setTimeout(resolve, 1500)); 
+
+            const foundResponse = mockResponses[query.toLowerCase()] || `Query '${query}' processed. Result: Based on your request, contact details for the specified students/resources will be sent to the registered parent email.`;
+
+            responseEl.classList.remove('border-green-main', 'bg-green-main/10');
+            responseEl.classList.add('border-red-main', 'bg-red-main/10');
+            responseEl.innerHTML = `<i data-lucide="check-circle" class="w-4 h-4 inline-block mr-2"></i> ${foundResponse}`;
+            lucide.createIcons();
+        }
+
+
+        /**
+         * Animated counter from a starting year to the current year.
+         */
+        function animateCounter(targetElementId) {
+            const el = document.getElementById(targetElementId);
+            const startYear = parseInt(el.getAttribute('data-target'));
+            const currentYear = new Date().getFullYear();
+            const duration = 2000; // 2 seconds
+            const startTime = performance.now();
+
+            function updateCounter(timestamp) {
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Calculate the current year to display
+                const currentValue = Math.floor(startYear + (currentYear - startYear) * progress);
+                el.textContent = currentValue;
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    el.textContent = startYear; // Final displayed text is the start year
+                }
+            }
+
+            requestAnimationFrame(updateCounter);
+        }
+
+        // Run animations and setup when the page loads
+        window.onload = () => {
+            // Initiate the year counter animation
+            animateCounter('year-counter');
+            
+            // Set the current year for the footer
+            document.getElementById('footer-year').textContent = new Date().getFullYear();
+            
+            // Re-run lucide icons creation after dynamic content loads (for modals)
+            lucide.createIcons();
+        };
+
+        // --- Firebase/LLM API Skeleton (DO NOT DELETE - REQUIRED STRUCTURE) ---
+        const apiKey = ""; 
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
+        const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
+
+        console.log(`App ID: ${appId}`);
+        console.log(`Firebase Config Loaded: ${!!firebaseConfig}`);
+        console.log(`Auth Token Present: ${!!initialAuthToken}`);
+
+    </script>
+
 </body>
 </html>
