@@ -1,84 +1,245 @@
-/* Maths Paradise Full CSS File */
-background: var(--primary-black);
-color: var(--primary-white);
-padding: 18px;
-font-size: 18px;
+/* Maths Paradise Full CSS File with Spotlight Hero */
+
+:root {
+  --primary-green: #1fa650;
+  --primary-red: #d62828;
+  --primary-black: #000;
+  --primary-white: #fff;
+  --accent-grey: #f4f4f4;
+  --text-dark: #111;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background: var(--accent-grey);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* HEADER */
+header {
+  background: var(--primary-black);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-green);
+  letter-spacing: 1px;
+}
+
+nav a {
+  margin-left: 25px;
+  color: var(--primary-white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-red);
+}
+
+/* HERO SPOTLIGHT */
+.hero {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('your-dad-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--primary-white);
+  text-align: center;
+  position: relative;
+}
+
+.hero-logo {
+  width: 150px;
+  margin-bottom: 20px;
+  animation: glow 2s infinite alternate;
+}
+
+.hero-title {
+  font-size: 72px;
+  font-weight: 900;
+  color: var(--primary-green);
+  text-shadow: 3px 3px 15px #000;
+}
+
+.hero-dad-name {
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 15px;
+  color: var(--primary-red);
+}
+
+.hero-dad-name span {
+  font-size: 42px;
+  font-weight: 900;
+  color: var(--primary-green);
+  display: block;
+}
+
+.hero-desc {
+  font-size: 22px;
+  max-width: 600px;
+  margin: 20px auto 0 auto;
+  color: var(--primary-white);
+}
+
+.dad-hero-img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  border: 5px solid var(--primary-green);
+  margin-bottom: 20px;
+  box-shadow: 0 0 30px var(--primary-red);
+}
+
+@keyframes glow {
+  0% { filter: drop-shadow(0 0 5px var(--primary-green)); }
+  50% { filter: drop-shadow(0 0 20px var(--primary-green)); }
+  100% { filter: drop-shadow(0 0 5px var(--primary-green)); }
+}
+
+/* ABOUT SECTION */
+#about {
+  padding: 80px 60px;
+  background: var(--primary-white);
+}
+
+#about h2 {
+  font-size: 40px;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+#about p {
+  max-width: 800px;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* SINCE 1997 BADGE */
+.since {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary-red);
+  color: var(--primary-white);
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+/* TIME TABLE SECTION */
+#timetable {
+  padding: 80px 60px;
+  background: var(--accent-grey);
+}
+
+#timetable h2 {
+  font-size: 40px;
+  color: var(--primary-green);
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--primary-white);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th {
+  background: var(--primary-black);
+  color: var(--primary-white);
+  padding: 18px;
+  font-size: 18px;
+}
 
 table td {
-padding: 15px;
-border-bottom: 1px solid #ccc;
-font-size: 17px;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  font-size: 17px;
 }
-
 
 /* DIRECTORY */
 #directory {
-padding: 80px 60px;
-background: var(--primary-white);
+  padding: 80px 60px;
+  background: var(--primary-white);
 }
-
 
 #directory h2 {
-color: var(--primary-green);
-font-size: 40px;
+  color: var(--primary-green);
+  font-size: 40px;
 }
-
 
 .student-list {
-margin-top: 30px;
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 20px;
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
-
 
 .student-card {
-padding: 20px;
-background: var(--accent-grey);
-border-left: 5px solid var(--primary-green);
-border-radius: 10px;
+  padding: 20px;
+  background: var(--accent-grey);
+  border-left: 5px solid var(--primary-green);
+  border-radius: 10px;
 }
-
 
 /* ADMISSION BUTTON */
 #admission {
-padding: 100px 60px;
-text-align: center;
-background: var(--primary-black);
-color: var(--primary-white);
+  padding: 100px 60px;
+  text-align: center;
+  background: var(--primary-black);
+  color: var(--primary-white);
 }
-
 
 #admission h2 {
-font-size: 40px;
-color: var(--primary-green);
+  font-size: 40px;
+  color: var(--primary-green);
 }
-
 
 .admission-btn {
-margin-top: 30px;
-padding: 18px 40px;
-font-size: 22px;
-background: var(--primary-red);
-border-radius: 10px;
-border: none;
-color: var(--primary-white);
-cursor: pointer;
-transition: 0.3s;
+  margin-top: 30px;
+  padding: 18px 40px;
+  font-size: 22px;
+  background: var(--primary-red);
+  border-radius: 10px;
+  border: none;
+  color: var(--primary-white);
+  cursor: pointer;
+  transition: 0.3s;
 }
-
 
 .admission-btn:hover {
-background: var(--primary-green);
+  background: var(--primary-green);
 }
-
 
 /* FOOTER */
 footer {
-text-align: center;
-padding: 30px;
-background: var(--primary-black);
-color: var(--primary-white);
+  text-align: center;
+  padding: 30px;
+  background: var(--primary-black);
+  color: var(--primary-white);
 }
