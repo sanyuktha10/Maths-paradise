@@ -5,11 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Maths Paradise — Admissions & Info</title>
   <meta name="description" content="Maths Paradise tuition classes — Since 1997. Grade 6 - 11. Admissions open." />
-  <!--
-    Colour palette: white, green (#0b8a4d), red (#d64545), black (#0b0b0b)
-    This single-file website contains HTML, CSS and JS for a full landing page.
-    Replace logo.png and dad.jpg with your images.
-  -->
   <style>
     /* ---------- BASE / RESET ---------- */
     :root{
@@ -50,12 +45,28 @@
     }
     .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
     .brand{display:flex; align-items:center; gap:12px}
-    .brand-logo{width:64px; height:64px; border-radius:12px; overflow:hidden; background:var(--green)}
+    
+    /* --- MODIFIED: Bigger Logo --- */
+    .brand-logo{width:72px; height:72px; border-radius:12px; overflow:hidden; background:var(--green)}
+    
     .brand-logo img{width:100%; height:100%; object-fit:cover}
     .brand-title{line-height:1}
-    .brand-title h1{margin:0; font-size:20px; letter-spacing:0.4px}
+    
+    /* --- MODIFIED: Bigger Title --- */
+    .brand-title h1{margin:0; font-size:26px; font-weight: 800; letter-spacing:0.4px}
+    
     .brand-title p{margin:0; font-size:12px; color:var(--muted)}
-    .highlight{background:linear-gradient(90deg, rgba(11,138,77,0.12), rgba(214,69,69,0.06)); padding:6px 12px; border-radius:999px; display:inline-block}
+    
+    /* --- MODIFIED: Cooler Spotlight Badge --- */
+    .highlight{
+      background: linear-gradient(90deg, var(--green-2), var(--red));
+      padding: 8px 16px;
+      border-radius:10px;
+      display:inline-block;
+      color: var(--white);
+      text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+      margin: 0;
+    }
 
     nav ul{list-style:none; display:flex; gap:14px; margin:0; padding:0}
     nav li{font-weight:600; font-size:14px}
@@ -64,9 +75,14 @@
     .btn-outline{border:2px solid var(--accent); color:var(--accent); background:transparent}
 
     /* ---------- HERO ---------- */
+    
+    /* --- MODIFIED: Stacked hero --- */
     .hero{
-      display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:center; padding:36px 0;
-      min-height:var(--hero-height);
+      display:grid; 
+      grid-template-columns: 1fr; /* Changed to 1 column */
+      gap:28px; 
+      align-items:center; 
+      padding:36px 0;
     }
     .hero-card{
       background: linear-gradient(180deg, rgba(11,138,77,0.04), rgba(214,69,69,0.02));
@@ -78,12 +94,56 @@
     .kpi .item{background:var(--white); border-radius:12px; padding:12px 14px; box-shadow:0 6px 18px rgba(11,11,11,0.04); min-width:110px}
     .kpi .num{font-weight:800; font-size:18px}
 
-    /* Dad highlight */
-    .dad-card{display:flex; gap:14px; align-items:center; padding:12px; border-radius:12px; background:linear-gradient(90deg, rgba(11,138,77,0.06), rgba(0,0,0,0.02));}
-    .dad-photo{width:72px; height:72px; border-radius:12px; overflow:hidden; border:3px solid var(--accent-2)}
+    /* --- MODIFIED: Dad Hero Card --- */
+    .dad-card{
+      display:flex; 
+      flex-direction: column; /* Stacked content */
+      align-items: center; /* Centered */
+      gap:14px; 
+      padding: 32px; /* More padding */
+      border-radius:18px; 
+      background: linear-gradient(135deg, var(--green), var(--green-2));
+      color: var(--white);
+      box-shadow: 0 10px 40px rgba(11,138,77,0.3);
+    }
+    
+    /* --- MODIFIED: Big Dad Photo --- */
+    .dad-photo{
+      width: 200px; /* BIG */
+      height: 200px; /* BIG */
+      border-radius: 50%; /* Circle */
+      overflow:hidden; 
+      border: 5px solid var(--white);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
     .dad-photo img{width:100%; height:100%; object-fit:cover}
-    .dad-info h3{margin:0; font-size:16px}
-    .dad-info p{margin:0; color:var(--muted); font-size:13px}
+    
+    /* --- MODIFIED: Centered Dad Info --- */
+    .dad-info{
+      text-align: center;
+    }
+    .dad-info h3{
+      margin: 16px 0 0 0;
+      font-size: 36px; /* BIG Title */
+      font-weight: 800;
+      color: var(--white);
+    }
+    /* --- MODIFIED: Hero Subtitle Style --- */
+    .dad-info h3 span{
+      display: block;
+      font-size: 18px;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+    /* --- MODIFIED: Hero Text Style --- */
+    .dad-info p, .dad-info p.small{
+      margin: 8px 0 0 0;
+      color: rgba(255,255,255,0.9);
+      font-size: 15px;
+      max-width: 500px;
+    }
+
 
     /* ---------- TIMETABLE ---------- */
     .timetable{margin-top:18px; background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8)); padding:16px; border-radius:12px}
@@ -92,16 +152,12 @@
     table td{padding:10px; border-bottom:1px solid rgba(11,11,11,0.04)}
     .small{font-size:13px; color:var(--muted)}
 
-    /* ---------- INFO SECTIONS ---------- */
+    /* ---------- INFO SECTIONS (No changes below this line, kept for rest of page) ---------- */
     section{margin:48px 0}
     h3.section-title{display:flex; align-items:center; gap:12px; margin:0 0 12px}
     .card{background:var(--white); border-radius:12px; padding:18px; box-shadow:0 8px 24px rgba(11,11,11,0.04)}
-
-    /* About */
     .about-grid{display:grid; grid-template-columns:1fr 340px; gap:18px; align-items:start}
     .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--green-2); color:var(--white); font-weight:700}
-
-    /* Students directory */
     .searchbar{display:flex; gap:8px; margin-bottom:12px}
     .searchbar input{flex:1; padding:10px 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)}
     .student-list{display:grid; gap:8px}
@@ -111,15 +167,9 @@
     .tag{padding:6px 8px; border-radius:8px; font-weight:700}
     .tag.green{background:var(--green); color:var(--white)}
     .tag.red{background:var(--red); color:var(--white)}
-
-    /* Testimonials */
     .testimonials{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px}
-
-    /* CTA */
     .cta{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px; border-radius:12px; background:linear-gradient(90deg, rgba(11,138,77,0.06), rgba(214,69,69,0.03))}
     .cta h3{margin:0}
-
-    /* Footer */
     footer{padding:28px 0; color:var(--muted)}
     .social{display:flex; gap:8px}
 
@@ -128,11 +178,12 @@
       .hero{grid-template-columns:1fr;}
       .about-grid{grid-template-columns:1fr}
     }
-
     @media (max-width:520px){
-      .brand-title h1{font-size:16px}
+      .brand-title h1{font-size:18px} /* Adjusted mobile title */
       .brand-logo{width:52px; height:52px}
       .hero h2{font-size:26px}
+      .dad-info h3{font-size: 28px;} /* Adjusted dad hero title for mobile */
+      .dad-photo{width: 150px; height: 150px;} /* Adjusted dad photo for mobile */
     }
   </style>
 </head>
@@ -142,7 +193,6 @@
       <div class="nav">
         <div class="brand">
           <div class="brand-logo" aria-hidden>
-            <!-- Replace with actual logo -->
             <img src="logo.png" alt="Maths Paradise Logo" />
           </div>
           <div class="brand-title">
@@ -164,8 +214,31 @@
   </header>
 
   <main class="container">
-    <!-- HERO -->
     <section class="hero">
+    
+      <aside>
+        <div class="dad-card card" aria-labelledby="dad-heading">
+          <div class="dad-photo">
+            <img src="dad.jpg" alt="Head tutor (Dad)" />
+          </div>
+          <div class="dad-info">
+            <h3 id="dad-heading">Mr. D. L. S. A. — <span>Founder & Head Tutor</span></h3>
+            <p>With over two decades of experience, our head tutor (your dad) leads the teaching with compassion, clarity, and results-driven methods. Maths Paradise is his proud work since 1997.</p>
+            <p class="small">Subjects: Arithmetic, Algebra, Geometry, Exam Techniques</p>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h4 style="margin:0">Why choose Maths Paradise?</h4>
+          <ul style="margin:12px 0 0 18px">
+            <li>Personal attention with small batches</li>
+            <li>Focused exam preparation (scholarship & term tests)</li>
+            <li>Proven track record since 1997</li>
+            <li>Friendly atmosphere — we treat students like family</li>
+          </ul>
+        </div>
+      </aside>
+
       <div class="hero-card">
         <h2><span style="color:var(--green)">Maths Paradise</span> — Where Numbers Make Sense</h2>
         <p class="hero-sub">Expert tuition for Grades 6–11. Personalised attention, proven results, and a warm friendly environment.</p>
@@ -232,32 +305,8 @@
 
       </div>
 
-      <!-- RIGHT: Dad highlight + photo -->
-      <aside>
-        <div class="dad-card card" aria-labelledby="dad-heading">
-          <div class="dad-photo">
-            <img src="dad.jpg" alt="Head tutor (Dad)" />
-          </div>
-          <div class="dad-info">
-            <h3 id="dad-heading">Mr. D. L. S. A. — <span style="color:var(--red)">Founder & Head Tutor</span></h3>
-            <p>With over two decades of experience, our head tutor (your dad) leads the teaching with compassion, clarity, and results-driven methods. Maths Paradise is his proud work since 1997.</p>
-            <p class="small">Subjects: Arithmetic, Algebra, Geometry, Exam Techniques</p>
-          </div>
-        </div>
-
-        <div style="margin-top:12px" class="card">
-          <h4 style="margin:0">Why choose Maths Paradise?</h4>
-          <ul style="margin:12px 0 0 18px">
-            <li>Personal attention with small batches</li>
-            <li>Focused exam preparation (scholarship & term tests)</li>
-            <li>Proven track record since 1997</li>
-            <li>Friendly atmosphere — we treat students like family</li>
-          </ul>
-        </div>
-      </aside>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <h3 class="section-title"><span class="badge">About</span> <span style="font-weight:800">Maths Paradise</span></h3>
       <div class="about-grid">
@@ -326,7 +375,6 @@
       </div>
     </section>
 
-    <!-- STUDENT DIRECTORY -->
     <section id="students">
       <h3 class="section-title"><span class="badge">Students</span> Current & Past Students</h3>
       <div class="card">
@@ -345,7 +393,6 @@
         </div>
 
         <div class="student-list" id="studentList">
-          <!-- Sample student items. In real use, replace with actual data or generate dynamically -->
           <div class="student" data-grade="6">
             <div class="meta">
               <img src="student1.jpg" alt="Priya S." />
@@ -385,7 +432,6 @@
             </div>
           </div>
 
-          <!-- more sample blocks to give page bulk for ~500 lines -->
           <div class="student" data-grade="8">
             <div class="meta">
               <img src="student4.jpg" alt="Saman P." />
@@ -425,7 +471,6 @@
             </div>
           </div>
 
-          <!-- filler student entries to extend the HTML document length -->
           <div class="student" data-grade="6">
             <div class="meta">
               <img src="student7.jpg" alt="Anushka J." />
@@ -470,7 +515,6 @@
       </div>
     </section>
 
-    <!-- ADMISSIONS SECTION -->
     <section id="admissions">
       <h3 class="section-title"><span class="badge">Admissions</span> Apply for Grade 6 — Next Intake</h3>
       <div class="card">
@@ -493,7 +537,6 @@
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <h3 class="section-title"><span class="badge">Contact</span> Get in touch</h3>
       <div class="card" style="display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start">
@@ -535,7 +578,6 @@
       </div>
     </section>
 
-    <!-- FOOTER CTA -->
     <section>
       <div class="cta">
         <div>
