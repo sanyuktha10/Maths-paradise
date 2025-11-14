@@ -1,245 +1,173 @@
-/* Maths Paradise Full CSS File with Spotlight Hero */
-
-:root {
-  --primary-green: #1fa650;
-  --primary-red: #d62828;
-  --primary-black: #000;
-  --primary-white: #fff;
-  --accent-grey: #f4f4f4;
-  --text-dark: #111;
+/* Maths Paradise Updated CSS Styles */
+:root{
+  --white:#ffffff;
+  --green:#0b8a4d;
+  --green-2:#1aa56a;
+  --red:#d64545;
+  --black:#0b0b0b;
+  --muted:#6b6b6b;
+  --glass: rgba(255,255,255,0.06);
+  --max-width:1200px;
+  --hero-height:480px;
+  --accent: var(--green);
+  --accent-2: var(--red);
+  --radius:14px;
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
 }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg, #fbfdfb 0%, #ffffff 100%);
+  color:var(--black);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+}
+a{color:var(--accent); text-decoration:none}
+img{max-width:100%; display:block}
+.container{max-width:var(--max-width); margin:0 auto; padding:24px}
 
-* {
+/* ---------- HEADER (Spotlight for Logo/Name) ---------- */
+header{
+  position:sticky; top:0; z-index:60;
+  backdrop-filter: blur(6px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.70));
+  border-bottom:1px solid rgba(11,11,11,0.06);
+}
+.nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
+.brand{display:flex; align-items:center; gap:12px}
+
+.brand-logo{width:72px; height:72px; border-radius:12px; overflow:hidden; background:var(--green)}
+
+.brand-logo img{width:100%; height:100%; object-fit:cover}
+.brand-title{line-height:1}
+
+.brand-title h1{margin:0; font-size:26px; font-weight: 800; letter-spacing:0.4px}
+
+.brand-title p{margin:0; font-size:12px; color:var(--muted)}
+
+.highlight{
+  background: linear-gradient(90deg, var(--green-2), var(--red));
+  padding: 8px 16px;
+  border-radius:10px;
+  display:inline-block;
+  color: var(--white);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
   margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
 
-body {
-  background: var(--accent-grey);
-  color: var(--text-dark);
-  line-height: 1.6;
+nav ul{list-style:none; display:flex; gap:14px; margin:0; padding:0}
+nav li{font-weight:600; font-size:14px}
+.btn{display:inline-block; padding:10px 16px; border-radius:10px; font-weight:700}
+.btn-primary{background:var(--accent); color:var(--white)}
+.btn-outline{border:2px solid var(--accent); color:var(--accent); background:transparent}
+
+/* ---------- HERO (The Dad's Hero Section) ---------- */
+
+.hero{
+  display:grid; 
+  grid-template-columns: 1fr; 
+  gap:28px; 
+  align-items:center; 
+  padding:36px 0;
+}
+.hero-card{
+  background: linear-gradient(180deg, rgba(11,138,77,0.04), rgba(214,69,69,0.02));
+  border-radius:18px; padding:28px; box-shadow:0 10px 30px rgba(11,11,11,0.06);
+}
+.hero h2{font-size:34px; margin:0 0 8px}
+.hero .hero-sub{color:var(--muted); margin-bottom:18px}
+.hero .kpi{display:flex; gap:12px; margin-top:18px}
+.kpi .item{background:var(--white); border-radius:12px; padding:12px 14px; box-shadow:0 6px 18px rgba(11,11,11,0.04); min-width:110px}
+.kpi .num{font-weight:800; font-size:18px}
+
+.dad-card{
+  display:flex; 
+  flex-direction: column; 
+  align-items: center; 
+  gap:14px; 
+  padding: 32px; 
+  border-radius:18px; 
+  background: linear-gradient(135deg, var(--green), var(--green-2)); 
+  color: var(--white);
+  box-shadow: 0 10px 40px rgba(11,138,77,0.3); 
 }
 
-/* HEADER */
-header {
-  background: var(--primary-black);
-  padding: 20px 40px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--primary-white);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+.dad-photo{
+  width: 200px; 
+  height: 200px; 
+  border-radius: 50%; 
+  overflow:hidden; 
+  border: 5px solid var(--white); 
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
 }
+.dad-photo img{width:100%; height:100%; object-fit:cover}
 
-header h1 {
-  font-size: 32px;
+.dad-info{
+  text-align: center;
+}
+.dad-info h3{
+  margin: 16px 0 0 0;
+  font-size: 36px; 
   font-weight: 800;
-  color: var(--primary-green);
-  letter-spacing: 1px;
+  color: var(--white);
 }
 
-nav a {
-  margin-left: 25px;
-  color: var(--primary-white);
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-nav a:hover {
-  color: var(--primary-red);
-}
-
-/* HERO SPOTLIGHT */
-.hero {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('your-dad-photo.jpg');
-  background-size: cover;
-  background-position: center;
-  color: var(--primary-white);
-  text-align: center;
-  position: relative;
-}
-
-.hero-logo {
-  width: 150px;
-  margin-bottom: 20px;
-  animation: glow 2s infinite alternate;
-}
-
-.hero-title {
-  font-size: 72px;
-  font-weight: 900;
-  color: var(--primary-green);
-  text-shadow: 3px 3px 15px #000;
-}
-
-.hero-dad-name {
-  font-size: 36px;
-  font-weight: 700;
-  margin-top: 15px;
-  color: var(--primary-red);
-}
-
-.hero-dad-name span {
-  font-size: 42px;
-  font-weight: 900;
-  color: var(--primary-green);
+.dad-info h3 span{
   display: block;
-}
-
-.hero-desc {
-  font-size: 22px;
-  max-width: 600px;
-  margin: 20px auto 0 auto;
-  color: var(--primary-white);
-}
-
-.dad-hero-img {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 5px solid var(--primary-green);
-  margin-bottom: 20px;
-  box-shadow: 0 0 30px var(--primary-red);
-}
-
-@keyframes glow {
-  0% { filter: drop-shadow(0 0 5px var(--primary-green)); }
-  50% { filter: drop-shadow(0 0 20px var(--primary-green)); }
-  100% { filter: drop-shadow(0 0 5px var(--primary-green)); }
-}
-
-/* ABOUT SECTION */
-#about {
-  padding: 80px 60px;
-  background: var(--primary-white);
-}
-
-#about h2 {
-  font-size: 40px;
-  color: var(--primary-green);
-  margin-bottom: 20px;
-}
-
-#about p {
-  max-width: 800px;
-  margin-top: 15px;
   font-size: 18px;
-  color: #333;
+  font-weight: 400;
+  opacity: 0.9;
+  margin-top: 4px;
 }
 
-/* SINCE 1997 BADGE */
-.since {
-  margin-top: 20px;
-  display: inline-block;
-  padding: 10px 20px;
-  background: var(--primary-red);
-  color: var(--primary-white);
-  font-weight: 600;
-  border-radius: 5px;
+.dad-info p, .dad-info p.small{
+  margin: 8px 0 0 0;
+  color: rgba(255,255,255,0.9); 
+  font-size: 15px;
+  max-width: 500px;
 }
 
-/* TIME TABLE SECTION */
-#timetable {
-  padding: 80px 60px;
-  background: var(--accent-grey);
-}
 
-#timetable h2 {
-  font-size: 40px;
-  color: var(--primary-green);
-  margin-bottom: 30px;
-}
+/* ---------- TIMETABLE ---------- */
+.timetable{margin-top:18px; background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8)); padding:16px; border-radius:12px}
+table{width:100%; border-collapse:collapse}
+table thead th{background:var(--accent); color:var(--white); padding:10px; text-align:left; font-weight:700; border-radius:8px}
+table td{padding:10px; border-bottom:1px solid rgba(11,11,11,0.04)}
+.small{font-size:13px; color:var(--muted)}
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: var(--primary-white);
-  border-radius: 10px;
-  overflow: hidden;
-}
+/* ---------- INFO SECTIONS ---------- */
+section{margin:48px 0}
+h3.section-title{display:flex; align-items:center; gap:12px; margin:0 0 12px}
+.card{background:var(--white); border-radius:12px; padding:18px; box-shadow:0 8px 24px rgba(11,11,11,0.04)}
+.about-grid{display:grid; grid-template-columns:1fr 340px; gap:18px; align-items:start}
+.badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--green-2); color:var(--white); font-weight:700}
+.searchbar{display:flex; gap:8px; margin-bottom:12px}
+.searchbar input{flex:1; padding:10px 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)}
+.student-list{display:grid; gap:8px}
+.student{display:flex; align-items:center; justify-content:space-between; padding:10px; border-radius:10px; background:linear-gradient(180deg, rgba(234,255,236,0.6), rgba(255,255,255,0.8));}
+.student .meta{display:flex; gap:12px; align-items:center}
+.student .meta img{width:48px; height:48px; object-fit:cover; border-radius:10px}
+.tag{padding:6px 8px; border-radius:8px; font-weight:700}
+.tag.green{background:var(--green); color:var(--white)}
+.tag.red{background:var(--red); color:var(--white)}
+.testimonials{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px}
+.cta{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px; border-radius:12px; background:linear-gradient(90deg, rgba(11,138,77,0.06), rgba(214,69,69,0.03))}
+.cta h3{margin:0}
+footer{padding:28px 0; color:var(--muted)}
+.social{display:flex; gap:8px}
 
-table th {
-  background: var(--primary-black);
-  color: var(--primary-white);
-  padding: 18px;
-  font-size: 18px;
+/* Responsive */
+@media (max-width:980px){
+  .hero{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr}
 }
-
-table td {
-  padding: 15px;
-  border-bottom: 1px solid #ccc;
-  font-size: 17px;
-}
-
-/* DIRECTORY */
-#directory {
-  padding: 80px 60px;
-  background: var(--primary-white);
-}
-
-#directory h2 {
-  color: var(--primary-green);
-  font-size: 40px;
-}
-
-.student-list {
-  margin-top: 30px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.student-card {
-  padding: 20px;
-  background: var(--accent-grey);
-  border-left: 5px solid var(--primary-green);
-  border-radius: 10px;
-}
-
-/* ADMISSION BUTTON */
-#admission {
-  padding: 100px 60px;
-  text-align: center;
-  background: var(--primary-black);
-  color: var(--primary-white);
-}
-
-#admission h2 {
-  font-size: 40px;
-  color: var(--primary-green);
-}
-
-.admission-btn {
-  margin-top: 30px;
-  padding: 18px 40px;
-  font-size: 22px;
-  background: var(--primary-red);
-  border-radius: 10px;
-  border: none;
-  color: var(--primary-white);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.admission-btn:hover {
-  background: var(--primary-green);
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 30px;
-  background: var(--primary-black);
-  color: var(--primary-white);
+@media (max-width:520px){
+  .brand-title h1{font-size:18px} 
+  .brand-logo{width:52px; height:52px}
+  .hero h2{font-size:26px}
+  /* Adjusted dad hero elements for smaller screens */
+  .dad-info h3{font-size: 28px;} 
+  .dad-photo{width: 150px; height: 150px;} 
 }
