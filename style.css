@@ -1,95 +1,224 @@
-:root{
-  --white:#ffffff;
-  --green:#0aa64a;
-  --red:#d62828;
-  --black:#111111;
-  --glass: rgba(255,255,255,0.08);
-  --accent: linear-gradient(135deg,var(--green),#16a085);
-  --shadow: 0 8px 30px rgba(10,10,10,0.12);
-  --rounded: 14px;
+/* Maths Paradise Full CSS File */
+
+:root {
+  --primary-green: #1fa650;
+  --primary-red: #d62828;
+  --primary-black: #000;
+  --primary-white: #fff;
+  --accent-grey: #f4f4f4;
+  --text-dark: #111;
 }
 
-*{box-sizing:border-box;margin:0;padding:0;font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
-html,body{height:100%;background:linear-gradient(180deg,#fbfffc,#f7fff9);color:var(--black);}
-
-/* Header */
-header.site-header{
-  position:sticky;top:0;background:var(--white);display:flex;align-items:center;justify-content:space-between;padding:14px 26px;gap:12px;border-bottom:1px solid rgba(0,0,0,0.06);backdrop-filter: blur(6px);z-index:40;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.04);
-}
-.site-brand{display:flex;align-items:center;gap:12px}
-.site-brand img{height:56px;width:56px;object-fit:contain;border-radius:8px}
-.site-title{font-weight:700;font-size:1.25rem;color:var(--green)}
-.site-nav a{margin-left:16px;text-decoration:none;color:var(--black);font-weight:600;opacity:0.9}
-.site-nav a:hover{color:var(--green);transform:translateY(-2px);transition:all .25s}
-
-/* HERO */
-.hero{
-  display:grid;grid-template-columns: 1fr 420px;gap:32px;align-items:center;padding:48px 6vw;
-  min-height:64vh;
-}
-.hero-left{max-width:780px;animation:fadeUp .9s ease both}
-.hero h1{font-size:clamp(2rem,4.5vw,3.8rem);line-height:1.02;color:var(--black);margin-bottom:12px}
-.tagline{font-size:1.05rem;color:rgba(0,0,0,0.65);margin-bottom:18px}
-.hero-ctas{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
-.btn{
-  display:inline-flex;align-items:center;gap:10px;padding:10px 18px;border-radius:12px;border:0;font-weight:700;cursor:pointer;
-  box-shadow:var(--shadow);transition:all .22s;
-}
-.btn-apply{background:var(--red);color:white}
-.btn-timetable{background:transparent;border:2px solid var(--green);color:var(--green)}
-
-/* hero right card */
-.teacher-card{
-  background:linear-gradient(180deg, rgba(255,255,255,0.9), #fff);
-  border-radius:16px;padding:18px;border:1px solid rgba(0,0,0,0.06);box-shadow:var(--shadow);display:flex;gap:12px;align-items:center;
-  transform:translateY(10px);animation:pop .8s ease both;
-}
-.teacher-photo{width:110px;height:110px;border-radius:12px;overflow:hidden;flex-shrink:0;border:3px solid rgba(10,10,10,0.05)}
-.teacher-photo img{width:100%;height:100%;object-fit:cover;display:block}
-.teacher-info{flex:1}
-.teacher-info h3{font-size:1.15rem;margin-bottom:6px;color:var(--black)}
-.teacher-info p{font-size:.95rem;color:rgba(0,0,0,0.65);margin-bottom:6px}
-.badge{display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;background:var(--green);color:white;font-size:.85rem}
-
-/* sections */
-.container{max-width:1100px;margin:0 auto;padding:36px 20px}
-.section{margin:28px 0}
-.section h2{font-size:1.35rem;color:var(--green);border-left:6px solid var(--red);padding-left:12px;margin-bottom:14px}
-
-/* timetable */
-.timetable{background:var(--white);padding:14px;border-radius:12px;border:1px solid rgba(0,0,0,0.06);box-shadow:var(--shadow)}
-.timetable table{width:100%;border-collapse:collapse}
-.timetable th, .timetable td{padding:12px 10px;border-bottom:1px solid rgba(0,0,0,0.06);text-align:left}
-.timetable th{background:var(--green);color:white;border-bottom:2px solid rgba(0,0,0,0.06)}
-
-/* students & admission grid */
-.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.card{background:var(--white);padding:16px;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:var(--shadow)}
-ul.student-list{list-style:none;padding-left:8px}
-.student-list li{padding:8px 6px;border-left:3px solid rgba(0,0,0,0.04);margin:8px 0}
-
-/* footer */
-footer.site-footer{margin-top:36px;background:var(--black);color:var(--white);padding:18px;text-align:center;border-top-left-radius:12px;border-top-right-radius:12px}
-
-/* tiny responsive */
-@media (max-width:980px){
-  .hero{grid-template-columns:1fr;padding:36px 5vw}
-  .teacher-card{margin-top:18px}
-  .grid-2{grid-template-columns:1fr}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
 
-/* animations */
-@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-@keyframes pop{from{opacity:0;transform:scale(.96) translateY(6px)}to{opacity:1;transform:none}}
-.btn:hover{transform:translateY(-4px);box-shadow:0 18px 45px rgba(10,10,10,0.08)}
+body {
+  background: var(--accent-grey);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
 
-/* small decorative decor */
-.brand-line{display:flex;gap:8px;align-items:center}
-.logo-small{height:40px;width:40px;object-fit:contain;border-radius:8px}
-.since{font-weight:600;color:rgba(0,0,0,0.6);font-size:.95rem;padding-left:8px}
+/* HEADER */
+header {
+  background: var(--primary-black);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--primary-white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
 
-/* subtle floating shapes */
-.float-shape{
-  position:absolute;right:8%;top:12%;width:160px;height:160px;border-radius:26px;background:var(--green);opacity:.06;filter:blur(20px);z-index:0;
+header h1 {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--primary-green);
+  letter-spacing: 1px;
+}
+
+nav a {
+  margin-left: 25px;
+  color: var(--primary-white);
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: var(--primary-red);
+}
+
+/* HERO SECTION */
+.hero {
+  width: 100%;
+  height: 90vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 60px;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('your-dad-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  color: var(--primary-white);
+}
+
+.hero-text h2 {
+  font-size: 64px;
+  font-weight: 900;
+  color: var(--primary-green);
+  text-shadow: 2px 2px 10px #000;
+}
+
+.hero-text p {
+  margin-top: 20px;
+  font-size: 22px;
+  max-width: 500px;
+}
+
+.hero button {
+  margin-top: 30px;
+  padding: 15px 35px;
+  border: none;
+  background: var(--primary-red);
+  color: var(--primary-white);
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero button:hover {
+  background: var(--primary-green);
+}
+
+/* ABOUT SECTION */
+#about {
+  padding: 80px 60px;
+  background: var(--primary-white);
+}
+
+#about h2 {
+  font-size: 40px;
+  color: var(--primary-green);
+  margin-bottom: 20px;
+}
+
+#about p {
+  max-width: 800px;
+  margin-top: 15px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* SINCE 1997 BADGE */
+.since {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 10px 20px;
+  background: var(--primary-red);
+  color: var(--primary-white);
+  font-weight: 600;
+  border-radius: 5px;
+}
+
+/* TIME TABLE SECTION */
+#timetable {
+  padding: 80px 60px;
+  background: var(--accent-grey);
+}
+
+#timetable h2 {
+  font-size: 40px;
+  color: var(--primary-green);
+  margin-bottom: 30px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: var(--primary-white);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+table th {
+  background: var(--primary-black);
+  color: var(--primary-white);
+  padding: 18px;
+  font-size: 18px;
+}
+
+table td {
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+  font-size: 17px;
+}
+
+/* DIRECTORY */
+#directory {
+  padding: 80px 60px;
+  background: var(--primary-white);
+}
+
+#directory h2 {
+  color: var(--primary-green);
+  font-size: 40px;
+}
+
+.student-list {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.student-card {
+  padding: 20px;
+  background: var(--accent-grey);
+  border-left: 5px solid var(--primary-green);
+  border-radius: 10px;
+}
+
+/* ADMISSION BUTTON */
+#admission {
+  padding: 100px 60px;
+  text-align: center;
+  background: var(--primary-black);
+  color: var(--primary-white);
+}
+
+#admission h2 {
+  font-size: 40px;
+  color: var(--primary-green);
+}
+
+.admission-btn {
+  margin-top: 30px;
+  padding: 18px 40px;
+  font-size: 22px;
+  background: var(--primary-red);
+  border-radius: 10px;
+  border: none;
+  color: var(--primary-white);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.admission-btn:hover {
+  background: var(--primary-green);
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  background: var(--primary-black);
+  color: var(--primary-white);
 }

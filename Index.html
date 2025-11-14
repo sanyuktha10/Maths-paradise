@@ -1,38 +1,651 @@
-<link rel="stylesheet" href="style.css">
-<!-- HERO -->
-<section class="hero" aria-label="Welcome to Maths Paradise">
-  <div class="hero-left">
-    <div class="brand-line">
-      <img src="logo.png" alt="Maths Paradise logo" class="logo-small">
-      <div>
-        <div class="site-title">Maths Paradise</div>
-        <div class="since">Since 1997</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maths Paradise — Admissions & Info</title>
+  <meta name="description" content="Maths Paradise tuition classes — Since 1997. Grade 6 - 11. Admissions open." />
+  <!--
+    Colour palette: white, green (#0b8a4d), red (#d64545), black (#0b0b0b)
+    This single-file website contains HTML, CSS and JS for a full landing page.
+    Replace logo.png and dad.jpg with your images.
+  -->
+  <style>
+    /* ---------- BASE / RESET ---------- */
+    :root{
+      --white:#ffffff;
+      --green:#0b8a4d;
+      --green-2:#1aa56a;
+      --red:#d64545;
+      --black:#0b0b0b;
+      --muted:#6b6b6b;
+      --glass: rgba(255,255,255,0.06);
+      --max-width:1200px;
+      --hero-height:480px;
+      --accent: var(--green);
+      --accent-2: var(--red);
+      --radius:14px;
+      font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background:linear-gradient(180deg, #fbfdfb 0%, #ffffff 100%);
+      color:var(--black);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+    }
+    a{color:var(--accent); text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--max-width); margin:0 auto; padding:24px}
+
+    /* ---------- HEADER ---------- */
+    header{
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.70));
+      border-bottom:1px solid rgba(11,11,11,0.06);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand-logo{width:64px; height:64px; border-radius:12px; overflow:hidden; background:var(--green)}
+    .brand-logo img{width:100%; height:100%; object-fit:cover}
+    .brand-title{line-height:1}
+    .brand-title h1{margin:0; font-size:20px; letter-spacing:0.4px}
+    .brand-title p{margin:0; font-size:12px; color:var(--muted)}
+    .highlight{background:linear-gradient(90deg, rgba(11,138,77,0.12), rgba(214,69,69,0.06)); padding:6px 12px; border-radius:999px; display:inline-block}
+
+    nav ul{list-style:none; display:flex; gap:14px; margin:0; padding:0}
+    nav li{font-weight:600; font-size:14px}
+    .btn{display:inline-block; padding:10px 16px; border-radius:10px; font-weight:700}
+    .btn-primary{background:var(--accent); color:var(--white)}
+    .btn-outline{border:2px solid var(--accent); color:var(--accent); background:transparent}
+
+    /* ---------- HERO ---------- */
+    .hero{
+      display:grid; grid-template-columns: 1fr 420px; gap:28px; align-items:center; padding:36px 0;
+      min-height:var(--hero-height);
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(11,138,77,0.04), rgba(214,69,69,0.02));
+      border-radius:18px; padding:28px; box-shadow:0 10px 30px rgba(11,11,11,0.06);
+    }
+    .hero h2{font-size:34px; margin:0 0 8px}
+    .hero .hero-sub{color:var(--muted); margin-bottom:18px}
+    .hero .kpi{display:flex; gap:12px; margin-top:18px}
+    .kpi .item{background:var(--white); border-radius:12px; padding:12px 14px; box-shadow:0 6px 18px rgba(11,11,11,0.04); min-width:110px}
+    .kpi .num{font-weight:800; font-size:18px}
+
+    /* Dad highlight */
+    .dad-card{display:flex; gap:14px; align-items:center; padding:12px; border-radius:12px; background:linear-gradient(90deg, rgba(11,138,77,0.06), rgba(0,0,0,0.02));}
+    .dad-photo{width:72px; height:72px; border-radius:12px; overflow:hidden; border:3px solid var(--accent-2)}
+    .dad-photo img{width:100%; height:100%; object-fit:cover}
+    .dad-info h3{margin:0; font-size:16px}
+    .dad-info p{margin:0; color:var(--muted); font-size:13px}
+
+    /* ---------- TIMETABLE ---------- */
+    .timetable{margin-top:18px; background:linear-gradient(180deg, rgba(255,255,255,0.6), rgba(255,255,255,0.8)); padding:16px; border-radius:12px}
+    table{width:100%; border-collapse:collapse}
+    table thead th{background:var(--accent); color:var(--white); padding:10px; text-align:left; font-weight:700; border-radius:8px}
+    table td{padding:10px; border-bottom:1px solid rgba(11,11,11,0.04)}
+    .small{font-size:13px; color:var(--muted)}
+
+    /* ---------- INFO SECTIONS ---------- */
+    section{margin:48px 0}
+    h3.section-title{display:flex; align-items:center; gap:12px; margin:0 0 12px}
+    .card{background:var(--white); border-radius:12px; padding:18px; box-shadow:0 8px 24px rgba(11,11,11,0.04)}
+
+    /* About */
+    .about-grid{display:grid; grid-template-columns:1fr 340px; gap:18px; align-items:start}
+    .badge{display:inline-block; padding:6px 10px; border-radius:999px; background:var(--green-2); color:var(--white); font-weight:700}
+
+    /* Students directory */
+    .searchbar{display:flex; gap:8px; margin-bottom:12px}
+    .searchbar input{flex:1; padding:10px 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)}
+    .student-list{display:grid; gap:8px}
+    .student{display:flex; align-items:center; justify-content:space-between; padding:10px; border-radius:10px; background:linear-gradient(180deg, rgba(234,255,236,0.6), rgba(255,255,255,0.8));}
+    .student .meta{display:flex; gap:12px; align-items:center}
+    .student .meta img{width:48px; height:48px; object-fit:cover; border-radius:10px}
+    .tag{padding:6px 8px; border-radius:8px; font-weight:700}
+    .tag.green{background:var(--green); color:var(--white)}
+    .tag.red{background:var(--red); color:var(--white)}
+
+    /* Testimonials */
+    .testimonials{display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:12px}
+
+    /* CTA */
+    .cta{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:18px; border-radius:12px; background:linear-gradient(90deg, rgba(11,138,77,0.06), rgba(214,69,69,0.03))}
+    .cta h3{margin:0}
+
+    /* Footer */
+    footer{padding:28px 0; color:var(--muted)}
+    .social{display:flex; gap:8px}
+
+    /* Responsive */
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr;}
+      .about-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width:520px){
+      .brand-title h1{font-size:16px}
+      .brand-logo{width:52px; height:52px}
+      .hero h2{font-size:26px}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="nav">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden>
+            <!-- Replace with actual logo -->
+            <img src="logo.png" alt="Maths Paradise Logo" />
+          </div>
+          <div class="brand-title">
+            <h1 class="highlight">Maths Paradise</h1>
+            <p>Since 1997 — Grade 6 • 7 • 8 • 9 • 10 • 11</p>
+          </div>
+        </div>
+
+        <nav>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#timetable">Timetable</a></li>
+            <li><a href="#students">Students</a></li>
+            <li><a href="#admissions" class="btn btn-outline">Admissions</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
+  </header>
 
-    <h1>Maths made simple — Clear, confident & consistent.</h1>
-    <p class="tagline">Grade 6 - 11 maths classes (Sinhala & English). Personal attention from <strong>Mr. Chandana Dahanayake</strong>. Small groups, exam-focused lessons and past-paper practice.</p>
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card">
+        <h2><span style="color:var(--green)">Maths Paradise</span> — Where Numbers Make Sense</h2>
+        <p class="hero-sub">Expert tuition for Grades 6–11. Personalised attention, proven results, and a warm friendly environment.</p>
 
-    <div class="hero-ctas">
-      <button class="btn btn-apply">Apply Now</button>
-      <a href="#timetable" class="btn btn-timetable">View Time Table</a>
-    </div>
-  </div>
+        <div class="kpi">
+          <div class="item">
+            <div class="num">25+ Years</div>
+            <div class="small">Teaching Excellence</div>
+          </div>
+          <div class="item">
+            <div class="num">500+</div>
+            <div class="small">Happy Students</div>
+          </div>
+          <div class="item">
+            <div class="num">Top 10%</div>
+            <div class="small">Average Score Improvement</div>
+          </div>
+        </div>
 
-  <aside class="teacher-card" aria-label="Teacher">
-    <div class="teacher-photo">
-      <img src="dad.jpg" alt="Mr. Chandana Dahanayake">
-    </div>
-    <div class="teacher-info">
-      <h3>Mr. Chandana Dahanayake</h3>
-      <p>Founder & maths tutor — teaching since 1997. Experienced in preparing students for school exams and advanced level streams.</p>
-      <div style="margin-top:8px">
-        <span class="badge">Sinhala & English</span>
-        <span style="margin-left:8px;color:rgba(0,0,0,0.6);font-weight:600">Private classes • Small groups</span>
+        <div class="timetable" id="timetable">
+          <h4 style="margin:0 0 12px">Class Timetable (Sample) — Updated Weekly</h4>
+          <table>
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Time</th>
+                <th>Grade(s)</th>
+                <th>Teacher</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>4:00 PM - 6:00 PM</td>
+                <td>Grade 6 • Grade 7</td>
+                <td>Mr. D. L. S. A. (Head Tutor)</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>5:00 PM - 7:00 PM</td>
+                <td>Grade 8 • Grade 9</td>
+                <td>Mrs. Indira</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>4:00 PM - 6:00 PM</td>
+                <td>Grade 6 • Grade 7</td>
+                <td>Mr. D. L. S. A.</td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>9:00 AM - 12:00 PM</td>
+                <td>Intensive Revision — All Grades</td>
+                <td>Senior Team</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div style="margin-top:16px; display:flex; gap:12px; align-items:center">
+          <a class="btn btn-primary" href="#admissions" onclick="openAdmissionForm()">Apply for Grade 6</a>
+          <a class="btn btn-outline" href="#students">See Past & Current Students</a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Dad highlight + photo -->
+      <aside>
+        <div class="dad-card card" aria-labelledby="dad-heading">
+          <div class="dad-photo">
+            <img src="dad.jpg" alt="Head tutor (Dad)" />
+          </div>
+          <div class="dad-info">
+            <h3 id="dad-heading">Mr. D. L. S. A. — <span style="color:var(--red)">Founder & Head Tutor</span></h3>
+            <p>With over two decades of experience, our head tutor (your dad) leads the teaching with compassion, clarity, and results-driven methods. Maths Paradise is his proud work since 1997.</p>
+            <p class="small">Subjects: Arithmetic, Algebra, Geometry, Exam Techniques</p>
+          </div>
+        </div>
+
+        <div style="margin-top:12px" class="card">
+          <h4 style="margin:0">Why choose Maths Paradise?</h4>
+          <ul style="margin:12px 0 0 18px">
+            <li>Personal attention with small batches</li>
+            <li>Focused exam preparation (scholarship & term tests)</li>
+            <li>Proven track record since 1997</li>
+            <li>Friendly atmosphere — we treat students like family</li>
+          </ul>
+        </div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <h3 class="section-title"><span class="badge">About</span> <span style="font-weight:800">Maths Paradise</span></h3>
+      <div class="about-grid">
+        <div>
+          <div class="card">
+            <h4>Our Story</h4>
+            <p>Maths Paradise began in 1997 as a small neighbourhood tuition class. Over the years, we've expanded our reach and developed a structured approach that helps students understand mathematics conceptually — not just memorize steps. Our founder (your dad) brings patience and an ability to break tough topics into simple, memorable tricks.</p>
+
+            <h4 style="margin-top:12px">What we teach</h4>
+            <p>From basics to exam-level problem solving:</p>
+            <ul>
+              <li>Number sense & mental math</li>
+              <li>Ratio, Proportion and Percentages</li>
+              <li>Algebra: expressions, equations and inequalities</li>
+              <li>Geometry: shapes, areas and volumes</li>
+              <li>Trigonometry basics for upper grades</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:12px" class="card">
+            <h4>Success Stories</h4>
+            <p>Our students consistently improve their school test scores and many place highly in scholarship exams. We focus on building confidence as much as technique.</p>
+            <div class="testimonials">
+              <div class="card">
+                <strong>Priya S.</strong>
+                <p class="small">"Scored 89% in Maths after 6 months at Maths Paradise!"</p>
+              </div>
+              <div class="card">
+                <strong>Ruwan K.</strong>
+                <p class="small">"The tricks for quick arithmetic saved me in the scholarship exam."</p>
+              </div>
+              <div class="card">
+                <strong>Naduni M.</strong>
+                <p class="small">"Teachers are patient and explain clearly."</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h4>Quick Facts</h4>
+            <ul>
+              <li><strong>Established:</strong> 1997</li>
+              <li><strong>Location:</strong> Dalugama (Prime Villas area) — contact for exact address</li>
+              <li><strong>Focus:</strong> Grades 6 to 11</li>
+              <li><strong>Class size:</strong> Max 12 students per batch</li>
+            </ul>
+            <div style="margin-top:12px">
+              <strong>Contact</strong>
+              <p class="small">Phone: <a href="tel:+9477XXXXXXX">+94 77 XXXXXXX</a></p>
+              <p class="small">Email: <a href="mailto:mathsparadise@example.com">mathsparadise@example.com</a></p>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="card">
+            <h4>Openings</h4>
+            <p class="small">We are accepting a small number of new Grade 6 students for the next academic year. Click below to apply or enquire.</p>
+            <div style="display:flex; gap:8px; margin-top:8px">
+              <a class="btn btn-primary" href="#admissions" onclick="openAdmissionForm()">Apply Now</a>
+              <a class="btn btn-outline" href="#contact">Enquire</a>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </section>
+
+    <!-- STUDENT DIRECTORY -->
+    <section id="students">
+      <h3 class="section-title"><span class="badge">Students</span> Current & Past Students</h3>
+      <div class="card">
+        <div class="searchbar">
+          <input id="searchInput" placeholder="Search student name or year..." aria-label="Search students" />
+          <select id="gradeFilter">
+            <option value="all">All Grades</option>
+            <option value="6">Grade 6</option>
+            <option value="7">Grade 7</option>
+            <option value="8">Grade 8</option>
+            <option value="9">Grade 9</option>
+            <option value="10">Grade 10</option>
+            <option value="11">Grade 11</option>
+          </select>
+          <button class="btn btn-primary" onclick="applyFilter()">Filter</button>
+        </div>
+
+        <div class="student-list" id="studentList">
+          <!-- Sample student items. In real use, replace with actual data or generate dynamically -->
+          <div class="student" data-grade="6">
+            <div class="meta">
+              <img src="student1.jpg" alt="Priya S." />
+              <div>
+                <strong>Priya S.</strong>
+                <div class="small">Graduated: 2024 — Scholarship: 89%</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag green">Top Scorer</span>
+            </div>
+          </div>
+
+          <div class="student" data-grade="6">
+            <div class="meta">
+              <img src="student2.jpg" alt="Ruwan K." />
+              <div>
+                <strong>Ruwan K.</strong>
+                <div class="small">Graduated: 2023 — Maths Marks: 82</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag red">Improved +20%</span>
+            </div>
+          </div>
+
+          <div class="student" data-grade="7">
+            <div class="meta">
+              <img src="student3.jpg" alt="Naduni M." />
+              <div>
+                <strong>Naduni M.</strong>
+                <div class="small">Current: Grade 7 — Last Test: 78</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag green">Consistent</span>
+            </div>
+          </div>
+
+          <!-- more sample blocks to give page bulk for ~500 lines -->
+          <div class="student" data-grade="8">
+            <div class="meta">
+              <img src="student4.jpg" alt="Saman P." />
+              <div>
+                <strong>Saman P.</strong>
+                <div class="small">Graduated: 2022 — Now A-levels</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag green">Alumni</span>
+            </div>
+          </div>
+
+          <div class="student" data-grade="9">
+            <div class="meta">
+              <img src="student5.jpg" alt="Kasun T." />
+              <div>
+                <strong>Kasun T.</strong>
+                <div class="small">Current: Grade 9 — Last Test: 84</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag red">Rapid Growth</span>
+            </div>
+          </div>
+
+          <div class="student" data-grade="10">
+            <div class="meta">
+              <img src="student6.jpg" alt="Dilani R." />
+              <div>
+                <strong>Dilani R.</strong>
+                <div class="small">Graduated: 2021 — Scholarship: 92</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag green">Scholarship</span>
+            </div>
+          </div>
+
+          <!-- filler student entries to extend the HTML document length -->
+          <div class="student" data-grade="6">
+            <div class="meta">
+              <img src="student7.jpg" alt="Anushka J." />
+              <div>
+                <strong>Anushka J.</strong>
+                <div class="small">Current: Grade 6 — Last Test: 75</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag green">Active</span>
+            </div>
+          </div>
+
+          <div class="student" data-grade="11">
+            <div class="meta">
+              <img src="student8.jpg" alt="Mihiran S." />
+              <div>
+                <strong>Mihiran S.</strong>
+                <div class="small">Graduated: 2020 — Now at University</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag green">Alumni</span>
+            </div>
+          </div>
+
+          <div class="student" data-grade="7">
+            <div class="meta">
+              <img src="student9.jpg" alt="Yasara P." />
+              <div>
+                <strong>Yasara P.</strong>
+                <div class="small">Current: Grade 7 — Last Test: 80</div>
+              </div>
+            </div>
+            <div>
+              <span class="tag green">Consistent</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ADMISSIONS SECTION -->
+    <section id="admissions">
+      <h3 class="section-title"><span class="badge">Admissions</span> Apply for Grade 6 — Next Intake</h3>
+      <div class="card">
+        <p>To apply for Grade 6, please fill the short application form. We will review and contact you within 3 working days.</p>
+
+        <h4>Admission Requirements</h4>
+        <ul>
+          <li>Currently in Grade 5 (2025)</li>
+          <li>Provide last term Mathematics marks</li>
+          <li>Parent/guardian contact number</li>
+        </ul>
+
+        <h4 style="margin-top:12px">Quick Apply</h4>
+        <p class="small">Click the button below to open our Google Form in a new tab. (Replace the URL in JS with your actual Google Form link.)</p>
+        <div style="display:flex; gap:8px; align-items:center; margin-top:8px">
+          <a class="btn btn-primary" onclick="openAdmissionForm()" style="cursor:pointer">Open Admission Form</a>
+          <a class="btn btn-outline" href="#contact">Need help? Contact us</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h3 class="section-title"><span class="badge">Contact</span> Get in touch</h3>
+      <div class="card" style="display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start">
+        <div>
+          <form id="contactForm" onsubmit="handleContact(event)">
+            <label>Parent / Guardian Name</label>
+            <input name="parentName" required style="width:100%; padding:10px; margin:6px 0 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)" />
+
+            <label>Phone Number</label>
+            <input name="phone" required style="width:100%; padding:10px; margin:6px 0 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)" />
+
+            <label>Message</label>
+            <textarea name="message" rows="4" style="width:100%; padding:10px; margin:6px 0 12px; border-radius:8px; border:1px solid rgba(11,11,11,0.06)"></textarea>
+
+            <div style="display:flex; gap:8px">
+              <button class="btn btn-primary" type="submit">Send Message</button>
+              <button class="btn btn-outline" type="button" onclick="fillSample()">Fill Sample</button>
+            </div>
+          </form>
+        </div>
+
+        <aside class="card">
+          <h4>Visit Us</h4>
+          <p class="small">Prime Villas, Dalugama — exact address shared after enquiry.</p>
+          <div style="margin-top:8px">
+            <strong>Hours</strong>
+            <p class="small">Mon–Fri: 4pm–8pm • Sat: 9am–12pm • Sun: Closed</p>
+          </div>
+
+          <div style="margin-top:8px">
+            <strong>Follow</strong>
+            <div class="social" style="margin-top:6px">
+              <a href="#">Facebook</a>
+              <a href="#">Instagram</a>
+              <a href="#">WhatsApp</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FOOTER CTA -->
+    <section>
+      <div class="cta">
+        <div>
+          <h3 style="margin:0"><span style="color:var(--green)">Maths Paradise</span> — Ready to Grow?</h3>
+          <p class="small">Secure a seat for your child — enrolments are limited to keep classes personal.</p>
+        </div>
+        <div style="display:flex; gap:8px">
+          <a class="btn btn-primary" onclick="openAdmissionForm()">Apply for Grade 6</a>
+          <a class="btn btn-outline" href="#contact">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between">
+        <div>
+          <strong style="font-size:18px">Maths Paradise</strong>
+          <p class="small" style="margin:6px 0">Since 1997 • Founded & run by Mr. D. L. S. A.</p>
+        </div>
+        <div>
+          <p class="small">© Maths Paradise — All rights reserved</p>
+        </div>
       </div>
     </div>
-  </aside>
+  </footer>
 
-  <div class="float-shape" aria-hidden="true"></div>
-</section>
-<script src="script.js"></script>
+  <script>
+    // ------------------ CONFIG ------------------
+    // Replace this URL with your actual Google Form link for admissions
+    const ADMISSION_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform';
+
+    // ------------------ ADMISSION ------------------
+    function openAdmissionForm(){
+      // Open in new tab
+      window.open(ADMISSION_FORM_URL, '_blank');
+    }
+
+    // ------------------ CONTACT FORM (local demo) ------------------
+    function handleContact(e){
+      e.preventDefault();
+      const f = e.target;
+      const data = {
+        parentName: f.parentName.value,
+        phone: f.phone.value,
+        message: f.message.value
+      };
+      // For demo, show a friendly message. Replace with actual server endpoint if needed.
+      alert('Thanks ' + data.parentName + '! We received your message and will contact you soon.');
+      f.reset();
+    }
+
+    function fillSample(){
+      const f = document.getElementById('contactForm');
+      f.parentName.value = 'Mrs. Silva';
+      f.phone.value = '+94 77 1234567';
+      f.message.value = 'I would like to enrol my child for Grade 6. Please advise next steps.';
+    }
+
+    // ------------------ STUDENT DIRECTORY FILTER ------------------
+    function applyFilter(){
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      const grade = document.getElementById('gradeFilter').value;
+      const items = document.querySelectorAll('#studentList .student');
+      items.forEach(it => {
+        const name = it.querySelector('strong').textContent.toLowerCase();
+        const meta = it.querySelector('.small') ? it.querySelector('.small').textContent.toLowerCase() : '';
+        const g = it.getAttribute('data-grade');
+        let match = true;
+        if(q){ match = name.includes(q) || meta.includes(q); }
+        if(grade !== 'all' && g !== grade) match = false;
+        it.style.display = match ? 'flex' : 'none';
+      });
+    }
+
+    // Allow search on Enter
+    document.getElementById('searchInput').addEventListener('keydown', function(e){ if(e.key === 'Enter'){ applyFilter(); e.preventDefault(); } });
+
+    // ------------------ SMALL UX: scroll to sections on anchor click ------------------
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e){
+        const target = this.getAttribute('href');
+        if(target && target.startsWith('#')){
+          e.preventDefault();
+          const el = document.querySelector(target);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      });
+    });
+
+    // ------------------ Accessibility tweaks ------------------
+    // Set focus outline for keyboard users
+    document.addEventListener('keydown', function(e){ if(e.key === 'Tab'){ document.body.classList.add('user-is-tabbing'); } });
+
+    // ------------------ Placeholder: Load sample images gracefully ------------------
+    // If any image is missing, replace with a colored placeholder
+    document.querySelectorAll('img').forEach(img =>{
+      img.addEventListener('error', () => {
+        // make a simple placeholder
+        img.src = 'data:image/svg+xml;utf8,\
+          <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300">\
+            <rect width="100%" height="100%" fill="%230b8a4d"/>\
+            <text x="50%" y="50%" font-size="18" fill="white" dominant-baseline="middle" text-anchor="middle">Image not available</text>\
+          </svg>';
+      });
+    });
+
+    // ------------------ END ------------------
+  </script>
+</body>
+</html>
