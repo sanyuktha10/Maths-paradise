@@ -410,9 +410,9 @@
                 
                 // Mock Testimonial Data (using black/white/green/red)
                 const mockPastStudents = [
-                    { name: "Anjali Perera", year: 2018, achievement: "A/L (Science) - Island Rank 12", quote: "Mr. Dahanayake made calculus simple and accessible." },
-                    { name: "Nimal Fernando", year: 2020, achievement: "O/L (Maths) - A Grade", quote: "The best math tutor in the city! Concept clarity is unmatched.", color: "red-main" },
-                    { name: "Chamath Wijeratne", year: 2022, achievement: "University Entry - Engineering Faculty", quote: "The paper class saved my final exam preparation.", color: "green-main" },
+                    { name: "Sanyuktha Dahanayake", year: 2016, achievement: "Electrical Engineer at Hayleys Solar", quote: "Mr. Dahanayake made calculus simple and accessible." },
+                    { name: "Jandinu Dahanayake", year: 2020, achievement: "Civil Engineering Undergraduate", quote: "The best math tutor in the city! Concept clarity is unmatched.", color: "red-main" },
+                    { name: "Mahil Sansika", year: 2022, achievement: "Software Engineer at Abans Finance", quote: "The paper class saved my final exam preparation.", color: "green-main" },
                 ];
 
                 contentEl.innerHTML = mockPastStudents.map(student => `
@@ -430,11 +430,17 @@
                 // Mock Current Student Data
                 const mockCurrentStudents = [
                     { grade: 6, medium: "Sinhala", count: 45, color: "green-main" },
-                     { grade: 7, medium: "Sinhala", count: 45, color: "green-main" }
-                    { grade: 8, medium: "English", count: 32, color: "red-main" },
-                     { grade: 9, medium: "Sinhala", count: 45, color: "green-main" }
+                    { grade: 6, medium: "English", count: 10, color: "red-main" },
+                     { grade: 7, medium: "Sinhala", count: 45, color: "green-main" },
+                     { grade: 7, medium: "English", count: 12, color: "red-main" },
+                    { grade: 8, medium: "Sinhala", count: 42, color: "red-main" },
+                    { grade: 8, medium: "English", count: 12, color: "red-main" },
+                     { grade: 9, medium: "Sinhala", count: 45, color: "green-main" },
+                     { grade: 9, medium: "English", count: 11, color: "red-main" },
                     { grade: 10, medium: "Sinhala", count: 68, color: "green-main" },
-                    { grade: 11, medium: "English", count: 55, color: "red-main" },
+                    { grade: 10, medium: "English", count: 14, color: "red-main" },
+                    { grade: 11, medium: "Sinhala", count: 72, color: "green-main" },
+                    { grade: 11, medium: "English", count: 15, color: "red-main" },
                 ];
 
                 contentEl.innerHTML = mockCurrentStudents.map(group => `
