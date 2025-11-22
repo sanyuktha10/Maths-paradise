@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maths Paradise - Chandana Dahanayake</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    
+
     <link rel="stylesheet" href="style.css">
-    
+
     <script>
         tailwind.config = {
             theme: {
@@ -23,6 +24,7 @@
         }
     </script>
 </head>
+
 <body class="text-gray-900">
 
     <header class="sticky top-0 z-50 shadow-xl bg-white/95 backdrop-blur-sm">
@@ -32,50 +34,61 @@
                 <span class="text-green-main">Maths</span>
                 <span class="text-gray-dark ml-1">Paradise</span>
             </a>
-            
+
             <div class="hidden md:flex space-x-8 font-medium">
                 <a href="#about" class="hover:text-green-main transition duration-300">About</a>
                 <a href="#timetable" class="hover:text-green-main transition duration-300">Timetable</a>
                 <a href="#directories" class="hover:text-green-main transition duration-300">Directories</a>
-                <a href="#admission" class="bg-red-main text-white px-4 py-2 rounded-full hover:bg-red-700 transition duration-300 admission-pulse">New Admission</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX1Serq0ZpH6LxQrMmT6DwTCSV7qemr387AnAgQTM4OJs-lA/viewform?usp=dialog" target="_blank" rel="noopener" class="bg-red-main text-white px-4 py-2 rounded-full hover:bg-red-700 transition duration-300 admission-pulse">New Admission</a>
             </div>
 
             <button id="mobile-menu-btn" class="md:hidden p-2 rounded-md hover:bg-gray-100 transition">
                 <i data-lucide="menu" class="w-6 h-6 text-gray-900"></i>
             </button>
         </nav>
-        
-        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 transition-all duration-300">
+
+        <div id="mobile-menu"
+            class="hidden md:hidden absolute top-full left-0 w-full bg-white shadow-lg border-t border-gray-100 transition-all duration-300">
             <div class="flex flex-col p-4 space-y-2">
-                <a href="#about" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition" onclick="toggleMobileMenu()">About</a>
-                <a href="#timetable" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition" onclick="toggleMobileMenu()">Timetable</a>
-                <a href="#directories" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition" onclick="toggleMobileMenu()">Directories</a>
-                <a href="#admission" class="bg-red-main text-white py-2 px-3 rounded-lg text-center hover:bg-red-700 transition" onclick="toggleAdmissionModal(); toggleMobileMenu()">New Admission</a>
+                <a href="#about" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition"
+                    onclick="toggleMobileMenu()">About</a>
+                <a href="#timetable" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition"
+                    onclick="toggleMobileMenu()">Timetable</a>
+                <a href="#directories" class="py-2 px-3 hover:bg-green-main/10 rounded-lg transition"
+                    onclick="toggleMobileMenu()">Directories</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX1Serq0ZpH6LxQrMmT6DwTCSV7qemr387AnAgQTM4OJs-lA/viewform?usp=dialog"
+                    target="_blank" rel="noopener"
+                    class="bg-red-main text-white px-4 py-2 rounded-full hover:bg-red-700 transition duration-300 admission-pulse">New
+                    Admission</a>
             </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto">
-        
-        <section id="hero" class="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 bg-green-main/10 rounded-b-3xl shadow-inner">
+
+        <section id="hero"
+            class="relative overflow-hidden pt-16 pb-20 md:pt-24 md:pb-32 bg-green-main/10 rounded-b-3xl shadow-inner">
             <div class="container mx-auto px-6 text-center">
                 <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900">
                     MATHS <span class="text-green-main">PARADISE</span>
                 </h1>
                 <p class="mt-4 text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-                    A legacy of excellence under the guidance of 
+                    A legacy of excellence under the guidance of
                     <span class="font-semibold text-green-main">Chandana Dahanayake</span>.
                 </p>
 
-                <div class="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
-                    <button onclick="toggleAdmissionModal()" class="w-full sm:w-auto bg-red-main text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-red-700 transition duration-300 admission-pulse">
+                <div
+                    class="mt-10 flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX1Serq0ZpH6LxQrMmT6DwTCSV7qemr387AnAgQTM4OJs-lA/viewform?usp=dialog" target="_blank" rel="noopener" class="w-full sm:w-auto inline-block text-center bg-red-main text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-red-700 transition duration-300 admission-pulse">
                         Enroll Grade 6 Now
-                    </button>
-                    <a href="#about" class="w-full sm:w-auto bg-gray-900 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-green-main transition duration-300">
+                    </a>
+                    <a href="#about"
+                        class="w-full sm:w-auto bg-gray-900 text-white font-bold py-3 px-8 rounded-full text-lg shadow-lg hover:bg-green-main transition duration-300">
                         Explore Our Legacy
                     </a>
                 </div>
-                
+
                 <div class="mt-16 bg-gray-dark text-white p-6 rounded-xl inline-block shadow-2xl">
                     <p class="text-2xl font-light text-red-main">Serving Students Since</p>
                     <div class="text-6xl font-black text-green-main mt-1">
@@ -87,36 +100,51 @@
         </section>
 
         <section id="about" class="py-20 px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 border-b-4 border-green-main/50 pb-2 inline-block mx-auto text-gray-900">
+            <h2
+                class="text-4xl font-bold text-center mb-12 border-b-4 border-green-main/50 pb-2 inline-block mx-auto text-gray-900">
                 About Maths Paradise & Mr. Dahanayake
             </h2>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
-                <div class="lg:col-span-1 bg-white p-8 rounded-xl shadow-2xl border-t-4 border-green-main card-hover-effect">
+                <div
+                    class="lg:col-span-1 bg-white p-8 rounded-xl shadow-2xl border-t-4 border-green-main card-hover-effect">
                     <div class="text-center">
-                        <img src="dad.jpg" alt="Mr. Chandana Dahanayake" class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-green-main/50 shadow-lg dad-image-highlight">
-                        
+                        <img src="dad.jpg" alt="Mr. Chandana Dahanayake"
+                            class="w-32 h-32 mx-auto rounded-full object-cover border-4 border-green-main/50 shadow-lg dad-image-highlight">
+
                         <h3 class="text-3xl font-bold mt-4 text-gray-900">Chandana Dahanayake</h3>
                         <p class="text-red-main font-semibold text-xl">The Instructor</p>
                         <p class="text-red-main font-semibold text-xl">BSc. BEd.</p>
                         <p class="mt-3 text-gray-700 leading-relaxed">
-                            Mr. Chandana Dahanayake has been the heart and soul of Maths Paradise since its inception in 1997. His unique teaching methodology, focused on clear concepts and rigorous practice, has successfully guided thousands of students to achieve exceptional results in their O/L examinations.
+                            Mr. Chandana Dahanayake has been the heart and soul of Maths Paradise since its inception in
+                            1997. His unique teaching methodology, focused on clear concepts and rigorous practice, has
+                            successfully guided thousands of students to achieve exceptional results in their O/L
+                            examinations.
                         </p>
                     </div>
                 </div>
 
-                <div class="lg:col-span-2 bg-white p-8 rounded-xl shadow-2xl border-t-4 border-red-main card-hover-effect flex flex-col justify-between">
+                <div
+                    class="lg:col-span-2 bg-white p-8 rounded-xl shadow-2xl border-t-4 border-red-main card-hover-effect flex flex-col justify-between">
                     <h3 class="text-3xl font-bold text-gray-900 mb-4">Our Legacy: Since 1997</h3>
                     <p class="text-gray-700 leading-relaxed text-lg">
-                        For over 25 years, Maths Paradise has been synonymous with high-quality Mathematics education. Our mission is to transform math fear into math fluency, ensuring every student, regardless of their current level, can master complex concepts. We offer classes in both Sinhala and English mediums for Grade 6 to Grade 11.
+                        For over 25 years, Maths Paradise has been synonymous with high-quality Mathematics education.
+                        Our mission is to transform math fear into math fluency, ensuring every student, regardless of
+                        their current level, can master complex concepts. We offer classes in both Sinhala and English
+                        mediums for Grade 6 to Grade 11.
                     </p>
                     <div class="mt-6">
                         <h4 class="text-xl font-bold text-green-main">Key Focus Areas:</h4>
                         <ul class="list-none space-y-2 mt-2 text-gray-700">
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-green-main mr-2"></i> Grade 6 to 11 Curriculum Mastery</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-green-main mr-2"></i> Dedicated Sinhala & English Medium Classes</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-green-main mr-2"></i> Creative Activities and Fun Learning</li>
-                            <li class="flex items-center"><i data-lucide="check-circle" class="w-5 h-5 text-green-main mr-2"></i> Exam-Oriented Paper Classes</li>
+                            <li class="flex items-center"><i data-lucide="check-circle"
+                                    class="w-5 h-5 text-green-main mr-2"></i> Grade 6 to 11 Curriculum Mastery</li>
+                            <li class="flex items-center"><i data-lucide="check-circle"
+                                    class="w-5 h-5 text-green-main mr-2"></i> Dedicated Sinhala & English Medium Classes
+                            </li>
+                            <li class="flex items-center"><i data-lucide="check-circle"
+                                    class="w-5 h-5 text-green-main mr-2"></i> Creative Activities and Fun Learning</li>
+                            <li class="flex items-center"><i data-lucide="check-circle"
+                                    class="w-5 h-5 text-green-main mr-2"></i> Exam-Oriented Paper Classes</li>
                         </ul>
                     </div>
                 </div>
@@ -124,7 +152,8 @@
         </section>
 
         <section id="timetable" class="py-20 px-6 bg-gray-900 rounded-xl my-10 shadow-3xl">
-            <h2 class="text-4xl font-bold text-center mb-12 text-white border-b-4 border-red-main/50 pb-2 inline-block mx-auto">
+            <h2
+                class="text-4xl font-bold text-center mb-12 text-white border-b-4 border-red-main/50 pb-2 inline-block mx-auto">
                 Class Timetable (Grade 6 - 11)
             </h2>
 
@@ -192,7 +221,7 @@
                             <td class="p-3">04:00 PM - 06:00 PM</td>
                             <td class="p-3">Number Patterns</td>
                         </tr>
-                         <tr class="timetable-row">
+                        <tr class="timetable-row">
                             <td class="p-3 font-semibold" rowspan="2">10</td>
                             <td class="p-3">Sinhala</td>
                             <td class="p-3 text-red-main">Friday</td>
@@ -221,14 +250,16 @@
                     </tbody>
                 </table>
             </div>
-            
+
             <p class="text-center text-gray-400 mt-6 text-sm">
-                *All classes are conducted exclusively by Chandana Dahanayake. Please contact for specific paper class schedules.
+                *All classes are conducted exclusively by Chandana Dahanayake. Please contact for specific paper class
+                schedules.
             </p>
         </section>
 
         <section id="directories" class="py-20 px-6">
-            <h2 class="text-4xl font-bold text-center mb-12 border-b-4 border-green-main/50 pb-2 inline-block mx-auto text-gray-900">
+            <h2
+                class="text-4xl font-bold text-center mb-12 border-b-4 border-green-main/50 pb-2 inline-block mx-auto text-gray-900">
                 Student Community
             </h2>
 
@@ -239,9 +270,11 @@
                         <i data-lucide="graduation-cap" class="w-8 h-8 text-green-main"></i>
                     </div>
                     <p class="text-gray-700">
-                        View our gallery of past students, their achievements, and testimonials. A testament to 25+ years of success.
+                        View our gallery of past students, their achievements, and testimonials. A testament to 25+
+                        years of success.
                     </p>
-                    <button onclick="openModal('pastStudentModal')" class="mt-4 bg-gray-900 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-main transition duration-300">
+                    <button onclick="openModal('pastStudentModal')"
+                        class="mt-4 bg-gray-900 text-white font-semibold py-2 px-6 rounded-full hover:bg-green-main transition duration-300">
                         View Gallery
                     </button>
                 </div>
@@ -252,9 +285,11 @@
                         <i data-lucide="users" class="w-8 h-8 text-red-main"></i>
                     </div>
                     <p class="text-gray-700">
-                        Access the directory for peer-to-peer networking and collaboration resources (Grade 6 - 11, both mediums).
+                        Access the directory for peer-to-peer networking and collaboration resources (Grade 6 - 11, both
+                        mediums).
                     </p>
-                    <button onclick="openModal('currentStudentModal')" class="mt-4 bg-gray-900 text-white font-semibold py-2 px-6 rounded-full hover:bg-red-main transition duration-300">
+                    <button onclick="openModal('currentStudentModal')"
+                        class="mt-4 bg-gray-900 text-white font-semibold py-2 px-6 rounded-full hover:bg-red-main transition duration-300">
                         Access Directory
                     </button>
                 </div>
@@ -267,12 +302,15 @@
                     New Intake for Grade 6 is OPEN!
                 </h2>
                 <p class="text-xl text-gray-800 max-w-2xl mx-auto mb-8">
-                    Start your journey to mathematical mastery with the foundation you deserve. Limited slots available for the Grade 6 
+                    Start your journey to mathematical mastery with the foundation you deserve. Limited slots available
+                    for the Grade 6
                     <span class="font-bold">Sinhala & English Medium</span> classes.
                 </p>
-                <button onclick="toggleAdmissionModal()" class="bg-red-main text-white font-black text-2xl py-4 px-10 rounded-full shadow-xl hover:bg-red-700 transition duration-300 admission-pulse">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfX1Serq0ZpH6LxQrMmT6DwTCSV7qemr387AnAgQTM4OJs-lA/viewform?usp=dialog" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-red-main text-white font-black text-2xl py-4 px-10 rounded-full shadow-xl hover:bg-red-700 transition duration-300 admission-pulse">
                     <i data-lucide="arrow-right-circle" class="w-6 h-6 inline-block mr-2"></i> Apply Now
-                </button>
+                </a>
+
+
             </div>
         </section>
 
@@ -281,15 +319,18 @@
     <footer class="bg-gray-900 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-white text-center">
             <p class="text-xl font-bold mb-2">Maths Paradise</p>
-            <p class="text-green-main text-sm">A Legacy of Quality Education since <span class="font-bold" id="footer-year">1997</span>.</p>
+            <p class="text-green-main text-sm">A Legacy of Quality Education since <span class="font-bold"
+                    id="footer-year">1997</span>.</p>
             <div class="mt-4 text-gray-400 text-sm">
                 <p>Instructor: Chandana Dahanayake | All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <div id="admissionModal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-backdrop p-4" aria-labelledby="modal-title" role="dialog" aria-modal="true">
-        <div class="bg-white rounded-xl shadow-3xl max-w-lg w-full transform transition-all overflow-hidden border-t-8 border-green-main">
+    <div id="admissionModal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-backdrop p-4"
+        aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div
+            class="bg-white rounded-xl shadow-3xl max-w-lg w-full transform transition-all overflow-hidden border-t-8 border-green-main">
             <div class="p-6">
                 <div class="flex justify-between items-start">
                     <h3 class="text-2xl font-bold text-gray-900" id="modal-title">Grade 6 New Admission</h3>
@@ -297,25 +338,33 @@
                         <i data-lucide="x" class="w-6 h-6"></i>
                     </button>
                 </div>
-                <p class="mt-2 text-sm text-gray-600">Please fill out the form to secure your child's place in the upcoming intake.</p>
-                
+                <p class="mt-2 text-sm text-gray-600">Please fill out the form to secure your child's place in the
+                    upcoming intake.</p>
+
                 <form class="mt-6 space-y-4">
                     <div>
                         <label for="student-name" class="block text-sm font-medium text-gray-700">Student Name</label>
-                        <input type="text" id="student-name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border" placeholder="Full Name" required>
+                        <input type="text" id="student-name"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border"
+                            placeholder="Full Name" required>
                     </div>
                     <div>
-                        <label for="parent-contact" class="block text-sm font-medium text-gray-700">Parent Contact Number</label>
-                        <input type="tel" id="parent-contact" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border" placeholder="07XXXXXXXX" required>
+                        <label for="parent-contact" class="block text-sm font-medium text-gray-700">Parent Contact
+                            Number</label>
+                        <input type="tel" id="parent-contact"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border"
+                            placeholder="07XXXXXXXX" required>
                     </div>
                     <div>
                         <label for="medium" class="block text-sm font-medium text-gray-700">Required Medium</label>
-                        <select id="medium" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border">
+                        <select id="medium"
+                            class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-green-main focus:ring-green-main p-2 border">
                             <option>Sinhala Medium</option>
                             <option>English Medium</option>
                         </select>
                     </div>
-                    <button type="submit" class="w-full bg-green-main text-white font-bold py-2 px-4 rounded-full hover:bg-green-600 transition duration-300 shadow-md">
+                    <button type="submit"
+                        class="w-full bg-green-main text-white font-bold py-2 px-4 rounded-full hover:bg-green-600 transition duration-300 shadow-md">
                         Submit Application
                     </button>
                     <p class="text-xs text-center text-red-main pt-2">
@@ -326,8 +375,10 @@
         </div>
     </div>
 
-    <div id="directoryModal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-backdrop p-4" aria-labelledby="dir-modal-title" role="dialog" aria-modal="true">
-        <div class="bg-white rounded-xl shadow-3xl max-w-xl w-full transform transition-all overflow-hidden border-t-8 border-red-main max-h-[90vh] flex flex-col">
+    <div id="directoryModal" class="fixed inset-0 z-[100] hidden items-center justify-center modal-backdrop p-4"
+        aria-labelledby="dir-modal-title" role="dialog" aria-modal="true">
+        <div
+            class="bg-white rounded-xl shadow-3xl max-w-xl w-full transform transition-all overflow-hidden border-t-8 border-red-main max-h-[90vh] flex flex-col">
             <div class="p-6 flex-shrink-0">
                 <div class="flex justify-between items-start">
                     <h3 class="text-2xl font-bold text-gray-900" id="dir-modal-title">Student Directory Access</h3>
@@ -340,7 +391,7 @@
 
             <div class="p-6 pt-0 overflow-y-auto flex-grow">
                 <div id="directory-content" class="space-y-4">
-                    </div>
+                </div>
 
                 <div class="mt-6 p-4 border border-gray-200 rounded-lg bg-gray-50">
                     <h4 class="text-lg font-semibold text-green-main">Need to find someone specific?</h4>
@@ -348,12 +399,17 @@
                         Use the mock "AI Lookup" functionality (simulated API call).
                     </p>
                     <div class="flex space-x-2">
-                        <input type="text" id="ai-query" class="flex-grow rounded-md border-gray-300 p-2 text-sm border" placeholder="Search by name or grade (e.g., 'A/L achievers')" onkeypress="if(event.key==='Enter') mockApiCall()">
-                        <button onclick="mockApiCall()" class="bg-red-main text-white text-sm py-2 px-4 rounded-md hover:bg-red-700 transition">
+                        <input type="text" id="ai-query" class="flex-grow rounded-md border-gray-300 p-2 text-sm border"
+                            placeholder="Search by name or grade (e.g., 'A/L achievers')"
+                            onkeypress="if(event.key==='Enter') mockApiCall()">
+                        <button onclick="mockApiCall()"
+                            class="bg-red-main text-white text-sm py-2 px-4 rounded-md hover:bg-red-700 transition">
                             <i data-lucide="search" class="w-4 h-4 inline-block"></i>
                         </button>
                     </div>
-                    <div id="ai-response" class="mt-3 text-sm italic text-gray-800 hidden p-2 border-l-4 border-red-main bg-red-main/10"></div>
+                    <div id="ai-response"
+                        class="mt-3 text-sm italic text-gray-800 hidden p-2 border-l-4 border-red-main bg-red-main/10">
+                    </div>
                 </div>
             </div>
 
@@ -369,14 +425,14 @@
         const directoryModal = document.getElementById('directoryModal');
         const mobileMenu = document.getElementById('mobile-menu');
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        
+
         /**
          * Toggles the mobile menu visibility.
          */
         function toggleMobileMenu() {
             mobileMenu.classList.toggle('hidden');
         }
-        
+
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
 
@@ -401,13 +457,13 @@
             const titleEl = document.getElementById('dir-modal-title');
             const subtitleEl = document.getElementById('dir-modal-subtitle');
             const contentEl = document.getElementById('directory-content');
-            
+
             contentEl.innerHTML = '';
-            
+
             if (modalType === 'pastStudentModal') {
                 titleEl.textContent = 'Past Student Triumphs & Testimonials';
                 subtitleEl.textContent = 'A look at the successful journey of our alumni since 1997.';
-                
+
                 // Mock Testimonial Data (using black/white/green/red)
                 const mockPastStudents = [
                     { name: "Sanyuktha Dahanayake", year: 2016, achievement: "Electrical Engineer at Hayleys Solar", quote: "Mr. Dahanayake made calculus simple and accessible." },
@@ -431,12 +487,12 @@
                 const mockCurrentStudents = [
                     { grade: 6, medium: "Sinhala", count: 45, color: "green-main" },
                     { grade: 6, medium: "English", count: 10, color: "red-main" },
-                     { grade: 7, medium: "Sinhala", count: 45, color: "green-main" },
-                     { grade: 7, medium: "English", count: 12, color: "red-main" },
+                    { grade: 7, medium: "Sinhala", count: 45, color: "green-main" },
+                    { grade: 7, medium: "English", count: 12, color: "red-main" },
                     { grade: 8, medium: "Sinhala", count: 42, color: "red-main" },
                     { grade: 8, medium: "English", count: 12, color: "red-main" },
-                     { grade: 9, medium: "Sinhala", count: 45, color: "green-main" },
-                     { grade: 9, medium: "English", count: 11, color: "red-main" },
+                    { grade: 9, medium: "Sinhala", count: 45, color: "green-main" },
+                    { grade: 9, medium: "English", count: 11, color: "red-main" },
                     { grade: 10, medium: "Sinhala", count: 68, color: "green-main" },
                     { grade: 10, medium: "English", count: 14, color: "red-main" },
                     { grade: 11, medium: "Sinhala", count: 72, color: "green-main" },
@@ -472,7 +528,7 @@
         async function mockApiCall() {
             const query = document.getElementById('ai-query').value.trim();
             const responseEl = document.getElementById('ai-response');
-            
+
             if (query === '') {
                 responseEl.textContent = 'Please enter a query to search the mock database.';
                 responseEl.classList.remove('hidden');
@@ -486,14 +542,14 @@
                 "anjana": "Anjana has two entries: A Past Student (O/L 2017, now a Dentist) and a Current G11 Student (English Medium).",
                 "trigonometry help": "The best resource is Mr. Dahanayake's Trigonometry Revision Notes (Page 45 of the G10 book).",
             };
-            
+
             responseEl.classList.remove('hidden', 'border-red-main', 'bg-red-main/10');
             responseEl.classList.add('border-green-main', 'bg-green-main/10');
             responseEl.innerHTML = `<i data-lucide="loader" class="w-4 h-4 inline-block animate-spin mr-2"></i> ${loadingMessage}`;
             lucide.createIcons();
 
             // Simulate Network Delay
-            await new Promise(resolve => setTimeout(resolve, 1500)); 
+            await new Promise(resolve => setTimeout(resolve, 1500));
 
             const foundResponse = mockResponses[query.toLowerCase()] || `Query '${query}' processed. Result: Based on your request, contact details for the specified students/resources will be sent to the registered parent email.`;
 
@@ -517,7 +573,7 @@
             function updateCounter(timestamp) {
                 const elapsed = timestamp - startTime;
                 const progress = Math.min(elapsed / duration, 1);
-                
+
                 // Calculate the current year to display (moving backward)
                 const currentValue = Math.ceil(currentYear - (currentYear - startYear) * progress);
                 el.textContent = currentValue;
@@ -536,16 +592,16 @@
         window.onload = () => {
             // Initiate the year counter animation
             animateCounter('year-counter');
-            
+
             // Set the current year for the footer
             document.getElementById('footer-year').textContent = new Date().getFullYear();
-            
+
             // Re-run lucide icons creation after dynamic content loads (for modals)
             lucide.createIcons();
         };
 
         // --- Firebase/LLM API Skeleton (DO NOT DELETE - REQUIRED STRUCTURE) ---
-        const apiKey = ""; 
+        const apiKey = "";
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
         const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : null;
         const initialAuthToken = typeof __initial_auth_token !== 'undefined' ? __initial_auth_token : null;
@@ -557,4 +613,5 @@
     </script>
 
 </body>
+
 </html>
